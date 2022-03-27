@@ -1,74 +1,66 @@
-import { useTheme } from "next-themes"
-import { VFC } from "react"
+import clsx from "clsx"
+import { useCallback, useState, VFC } from "react"
 
-import { UserTable } from "@/components/model/User/UserTable"
-
+import { Hero } from "@/components/ui/Hero"
 import { Spacer } from "@/components/ui/Spacer"
+import { TagList } from "@/components/ui/Tag"
 
-import { mockUserList } from "@/mocks/User"
-
-const THEMES = [
-  "light",
-  "dark",
-  "cupcake",
-  "bumblebee",
-  "emerald",
-  "corporate",
-  "synthwave",
-  "retro",
-  "cyberpunk",
-  "valentine",
-  "halloween",
-  "garden",
-  "forest",
-  "aqua",
-  "lofi",
-  "pastel",
-  "fantasy",
-  "wireframe",
-  "black",
-  "luxury",
-  "dracula",
-  "cmyk",
-  "autumn",
-  "business",
-  "acid",
-  "lemonade",
-  "night",
-  "coffee",
-  "winter",
-]
+import { CategoryType } from "@/constant/category"
+import { ATHLETIC_TAG_POPULAR, CULTURAL_TAG_POPULAR } from "@/constant/tag"
 
 export const TopPageView: VFC = () => {
-  const { theme, setTheme } = useTheme()
+  const [tab, setTab] = useState<CategoryType>("athletic")
+  const isAthletic = tab === "athletic"
+  const tabItemProps = ["w-1/2", "tab", "tab-lifted"]
 
-  const handleChange: React.ChangeEventHandler<HTMLSelectElement> = (event) => {
-    setTheme(event.target.value)
-  }
+  const toAth = useCallback(() => {
+    setTab("athletic")
+  }, [])
+
+  const toCul = useCallback(() => {
+    setTab("cultural")
+  }, [])
 
   return (
-    <main
-      className="flex flex-col justify-center items-center p-4 h-screen"
-      onChange={handleChange}
-    >
-      <select className="w-full max-w-xs select select-bordered">
-        <option disabled selected>
-          Pick your favorite theme
-        </option>
-        {THEMES.map((themeName) => (
-          <option key={themeName}>{themeName}</option>
-        ))}
-      </select>
-      <Spacer size={8} />
-      <div className="text-center prose">
-        <h1>Play with daisyUI on Next.js!</h1>
-        <h2>
-          current theme is
-          <span className="pl-2 text-primary">{theme}</span>
-        </h2>
+    <main className="flex flex-col items-center h-screen">
+      <Hero />
+
+      <Spacer size={4} />
+
+      <div className="w-full tabs">
+        <a
+          className={clsx(...tabItemProps, isAthletic && "tab-active")}
+          onClick={toAth}
+        >
+          運動系
+        </a>
+        <a
+          className={clsx(...tabItemProps, !isAthletic && "tab-active")}
+          onClick={toCul}
+        >
+          文化系
+        </a>
       </div>
-      <Spacer size={8} />
-      <UserTable users={mockUserList} />
+
+      <Spacer size={4} />
+
+      <div className="p-2">{isAthletic ? <AthView /> : <CulView />}</div>
     </main>
+  )
+}
+
+const AthView: VFC = () => {
+  return (
+    <div>
+      <TagList label={"人気の運動系タグ"} tags={ATHLETIC_TAG_POPULAR} />
+    </div>
+  )
+}
+
+const CulView: VFC = () => {
+  return (
+    <div>
+      <TagList label={"人気の文化系タグ"} tags={CULTURAL_TAG_POPULAR} />
+    </div>
   )
 }
