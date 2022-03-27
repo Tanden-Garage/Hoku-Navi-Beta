@@ -6,7 +6,7 @@ type AnchorTagProps = ComponentProps<"a">
 
 interface AnchorProps extends AnchorTagProps {
   className?: string
-  isExtarnal: boolean
+  isExtarnal?: boolean
 }
 
 export const Anchor: FC<AnchorProps> = ({
