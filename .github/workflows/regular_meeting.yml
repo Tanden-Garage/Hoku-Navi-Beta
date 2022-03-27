@@ -1,0 +1,34 @@
+# このワークフローはGitHubによって認定されていないアクションを使用します。
+# それらはサードパーティによって提供され、
+# 別個の利用規約、プライバシーポリシー、
+# サポートドキュメンテーションが適用されます。
+
+name: Weekly Team Sync
+on:
+  schedule:
+    - cron: 20 3 * * 7
+
+jobs:
+  create_issue:
+    name: Create team sync issue
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Create team sync issue
+        uses: imjohnbo/issue-bot@3daae12aa54d38685d7ff8459fc8a2aee8cea98b
+        with:
+          assignees: "HajimexxxNakagawa"
+          labels: "documentation"
+          title: 定例会${{ github.run_number }}
+          body: |
+            ## 唱和
+
+            - 短期・怠慢・傲慢
+            - 面白い人より面白がる人になれ
+            - 指数関数的な成果を出す
+          pinned: false
+          close-previous: false
+          project: 3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
