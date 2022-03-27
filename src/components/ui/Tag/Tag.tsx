@@ -1,5 +1,6 @@
-import Link from "next/link"
 import { VFC } from "react"
+
+import { Anchor } from "@/components/ui/Anchor"
 
 type Tag = {
   label: string
@@ -15,11 +16,12 @@ export const Tag: VFC<TagProps> = ({ tag }) => {
 
   return (
     <span className="h-6 text-base badge badge-primary badge-outline hover:border-primary-focus">
-      <Link href={`/${path}`}>
-        <a className="hover:no-underline link link-primary link-hover">
-          {label}
-        </a>
-      </Link>
+      <Anchor
+        href={`/${path}`}
+        className="hover:no-underline link link-primary link-hover"
+      >
+        {label}
+      </Anchor>
     </span>
   )
 }
