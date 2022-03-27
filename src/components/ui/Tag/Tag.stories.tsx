@@ -1,9 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 import React from "react"
 
-import { TagList } from "./Tag"
-
-import { Tag } from "./index"
+import { Tag, TagList } from "./index"
 
 export default {
   title: "UI/Tag",
@@ -11,18 +9,31 @@ export default {
 } as ComponentMeta<typeof Tag>
 
 const SingleTemplate: ComponentStory<typeof Tag> = (args) => <Tag {...args} />
+const ListTemplate: ComponentStory<typeof TagList> = (args) => (
+  <TagList {...args} />
+)
 
 const soccerTag = {
   label: "サッカー",
   path: "soccer",
 }
 
+const tennisTag = {
+  label: "テニス",
+  path: "tennis",
+}
+
+const tagList = [
+  soccerTag,
+  tennisTag,
+  soccerTag,
+  tennisTag,
+  soccerTag,
+  tennisTag,
+]
+
 export const Single = SingleTemplate.bind({})
 Single.args = { tag: soccerTag }
 
-const ListTemplate: ComponentStory<typeof TagList> = (args) => (
-  <TagList {...args} />
-)
-
 export const List = ListTemplate.bind({})
-List.args = { tags: [soccerTag, soccerTag, soccerTag, soccerTag] }
+List.args = { tags: tagList }
