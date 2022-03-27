@@ -1,12 +1,12 @@
 export const ATHLETIC_TAG_ALL = [
   { label: "合気道", path: "aikido" },
   { label: "アイスホッケー", path: "icehockey" },
-  { label: "アウトドア", path: "outdoor" },
+  { label: "アウトドア", path: "outdoor-ath" },
   { label: "アメリカンフットボール", path: "americanfootboll" },
   { label: "アルティメット", path: "ultimate" },
   { label: "アーチェリー", path: "archery" },
   { label: "居合道", path: "iaidou" },
-  { label: "応援", path: "cheering" },
+  { label: "応援", path: "cheering-ath" },
   { label: "オリエンテーリング", path: "orienteering" },
   { label: "オールラウンド", path: "allround" },
   { label: "カヌー", path: "canoe" },
@@ -60,4 +60,45 @@ export const ATHLETIC_TAG_ALL = [
   { label: "ワンダーフォーゲル", path: "wandervogel" },
 ]
 
-export const CULTURAL_TAG_LIST = []
+export const ATHLETIC_TAG_POPULAR = [
+  { label: "テニス", path: "tennis" },
+  { label: "野球", path: "baseball" },
+  { label: "スキー", path: "ski" },
+  { label: "サッカー", path: "soccer" },
+  { label: "バレーボール", path: "volleyball" },
+  { label: "ダンス", path: "dance" },
+  { label: "陸上競技", path: "track" },
+  { label: "バスケットボール", path: "basketball" },
+  { label: "合気道", path: "aikido" },
+]
+
+export const CULTURAL_TAG_ALL = [
+  { label: "アウトドア", path: "outdoor-cul" },
+  { label: "映画", path: "cinema" },
+  { label: "英語", path: "english" },
+  { label: "演劇", path: "drama" },
+  { label: "応援", path: "cheering-cul" },
+  { label: "音楽", path: "music" },
+  { label: "教育", path: "education" },
+  { label: "クリエイティブ", path: "creative" },
+  { label: "研究", path: "study" },
+  { label: "ゲーム", path: "game" },
+  { label: "国際", path: "international" },
+  { label: "食", path: "food" },
+  { label: "地学", path: "geoscience" },
+  { label: "農業", path: "agriculture" },
+  { label: "文化・芸術", path: "culture-art" },
+  { label: "ボランティア", path: "volunteer" },
+  { label: "よさこい", path: "yosakoi" },
+  { label: "旅行", path: "trip" },
+]
+
+export const CULTURAL_TAG_POPULAR = [
+  { label: "音楽", path: "music" },
+  { label: "研究", path: "study" },
+  { label: "クリエイティブ", path: "creative" },
+  { label: "ボランティア", path: "volunteer" },
+  { label: "文化・芸術", path: "culture-art" },
+  { label: "国際", path: "international" },
+  { label: "アウトドア", path: "outdoor-cul" },
+]
