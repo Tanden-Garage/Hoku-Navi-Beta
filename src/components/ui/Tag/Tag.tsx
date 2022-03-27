@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { VFC } from "react"
 
+import { CategoryType, CATEGORY_TYPE } from "@/constant/category"
+
 type Tag = {
   label: string
   path: string
@@ -26,14 +28,21 @@ export const Tag: VFC<TagProps> = ({ tag }) => {
 
 interface TagListProps {
   tags: Tag[]
+  categoryType: CategoryType
 }
 
-export const TagList: VFC<TagListProps> = ({ tags }) => {
+export const TagList: VFC<TagListProps> = ({ tags, categoryType }) => {
+  const label = CATEGORY_TYPE[categoryType]
+
   return (
-    <div className="flex flex-wrap gap-2">
-      {tags.map((tag) => (
-        <Tag tag={tag} key={tag.path} />
-      ))}
+    <div className="prose">
+      <h2>{label}のタグ</h2>
+
+      <div className="flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <Tag tag={tag} key={tag.path} />
+        ))}
+      </div>
     </div>
   )
 }

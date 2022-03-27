@@ -36,4 +36,4 @@ export const Single = SingleTemplate.bind({})
 Single.args = { tag: soccerTag }
 
 export const List = ListTemplate.bind({})
-List.args = { tags: tagList }
+List.args = { tags: tagList, categoryType: "athletic" }
