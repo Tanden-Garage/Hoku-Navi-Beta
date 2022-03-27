@@ -17,7 +17,7 @@ export const Tag: VFC<TagProps> = ({ tag }) => {
   return (
     <span className="h-6 text-base badge badge-primary badge-outline hover:border-primary-focus">
       <Anchor
-        href={`/${path}`}
+        href={path}
         className="hover:no-underline link link-primary link-hover"
       >
         {label}
