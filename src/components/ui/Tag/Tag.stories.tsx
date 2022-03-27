@@ -6,11 +6,14 @@ import { Tag } from "./index"
 export default {
   title: "UI/Tag",
   component: Tag,
-} as ComponentMeta<typeof Tag>;
+} as ComponentMeta<typeof Tag>
 
-const Template: ComponentStory<typeof Tag> = (args) => (
-  <Tag {...args} />
-)
+const Template: ComponentStory<typeof Tag> = (args) => <Tag {...args} />
+
+const soccerTag = {
+  label: "サッカー",
+  path: "soccer",
+}
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = { tag: soccerTag }

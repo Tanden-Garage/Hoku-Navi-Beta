@@ -14,11 +14,11 @@ export const Tag: VFC<TagProps> = ({ tag }) => {
   const { label, path } = tag
 
   return (
-    <div>
+    <span className="py-2 px-4 rounded-full bg-base-200">
       <Link href={`/${path}`}>
-        <a>{label}</a>
+        <a className="link link-primary link-hover">{label}</a>
       </Link>
-    </div>
+    </span>
   )
 }
 
