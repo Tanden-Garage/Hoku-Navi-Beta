@@ -72,6 +72,17 @@ export const ATHLETIC_TAG_POPULAR = [
   { label: "合気道", path: "/athletic/aikido" },
 ]
 
+export const ATHLETIC_TAG_FOR_CULTURAL = [
+  { label: "アーチェリー", path: "/athletic/archery" },
+  { label: "ゴルフ", path: "/athletic/golf" },
+  { label: "モルック", path: "/athletic/molkky" },
+  { label: "馬術", path: "/athletic/equestrian" },
+  { label: "バドミントン", path: "/athletic/badminton" },
+  { label: "スカッシュ", path: "/athletic/squash" },
+  { label: "山岳", path: "/athletic/mountain" },
+  { label: "フィギュアスケート", path: "/athletic/figureskating" },
+]
+
 export const CULTURAL_TAG_ALL = [
   { label: "アウトドア", path: "/cultural/outdoor-cul" },
   { label: "映画", path: "/cultural/cinema" },
@@ -102,5 +113,3 @@ export const CULTURAL_TAG_POPULAR = [
   { label: "国際", path: "/cultural/international" },
   { label: "アウトドア", path: "/cultural/outdoor-cul" },
 ]
-
-export type AthleticPath = typeof ATHLETIC_TAG_ALL[number]["path"]
