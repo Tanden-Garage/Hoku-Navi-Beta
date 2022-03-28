@@ -2687,20 +2687,20 @@
     webpack-dev-middleware "^3.7.3"
     webpack-virtual-modules "^0.2.2"
 
-"@storybook/manager-webpack5@^6.4.15":
-  version "6.4.15"
-  resolved "https://registry.yarnpkg.com/@storybook/manager-webpack5/-/manager-webpack5-6.4.15.tgz#e05347143135a055442396761aa382a4dcbd2f87"
-  integrity sha512-NWDnoCaDOlsoq/xw21YvvDJrIXuZnW/Ou/OLUkMcePcflEE81nQYSo2oS2cbmN4g6ghWQoYM4CS62BOoJEAHrw==
+"@storybook/manager-webpack5@^6.4.19":
+  version "6.4.19"
+  resolved "https://registry.yarnpkg.com/@storybook/manager-webpack5/-/manager-webpack5-6.4.19.tgz#161809337b69e6c4ea6a4eb6f881a32760bbeb60"
+  integrity sha512-hVjWhWAOgWaymBy0HeRskN+MfKLpqLP4Txfw+3Xqg1qplgexV0w2O4BQrS/SNEH4V/1qF9h8XTsk3L3oQIj3Mg==
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-transform-template-literals" "^7.12.1"
     "@babel/preset-react" "^7.12.10"
-    "@storybook/addons" "6.4.15"
-    "@storybook/core-client" "6.4.15"
-    "@storybook/core-common" "6.4.15"
-    "@storybook/node-logger" "6.4.15"
-    "@storybook/theming" "6.4.15"
-    "@storybook/ui" "6.4.15"
+    "@storybook/addons" "6.4.19"
+    "@storybook/core-client" "6.4.19"
+    "@storybook/core-common" "6.4.19"
+    "@storybook/node-logger" "6.4.19"
+    "@storybook/theming" "6.4.19"
+    "@storybook/ui" "6.4.19"
     "@types/node" "^14.0.10"
     babel-loader "^8.0.0"
     case-sensitive-paths-webpack-plugin "^2.3.0"
