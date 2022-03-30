@@ -11,7 +11,7 @@
     "build-sb": "build-storybook"
   },
   "dependencies": {
-    "daisyui": "^2.13.3",
+    "daisyui": "^2.13.4",
     "next": "12.1.2",
     "next-themes": "^0.1.1",
     "react": "17.0.2",
