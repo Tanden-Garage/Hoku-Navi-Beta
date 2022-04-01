@@ -71,6 +71,19 @@ export const ATHLETIC_TAG_POPULAR = [
   { label: "バスケットボール", path: "/athletic/basketball" },
   { label: "合気道", path: "/athletic/aikido" },
 ]
+export const ATHLETIC_TAG_FOR_ATHLETIC = [
+  { label: "アメリカンフットボール", path: "/athletic/americanfootball" },
+  { label: "パルクール", path: "/athletic/parkour" },
+  { label: "オリエンテーリング", path: "/athletic/orienteering" },
+  { label: "応援", path: "/athletic/cheering-ath" },
+  { label: "ダイビング", path: "/athletic/diving" },
+  { label: "ラクロス", path: "/athletic/lacrosse" },
+  { label: "ヨット", path: "/athletic/yacht" },
+  { label: "自転車", path: "/athletic/bicycle" },
+  { label: "居合道", path: "/athletic/iaidou" },
+  { label: "ワンダーフォーゲル", path: "/athletic/wandervogel" },
+  { label: "アイスホッケー", path: "/athletic/icehockey" },
+]
 
 export const ATHLETIC_TAG_FOR_CULTURAL = [
   { label: "アーチェリー", path: "/athletic/archery" },
