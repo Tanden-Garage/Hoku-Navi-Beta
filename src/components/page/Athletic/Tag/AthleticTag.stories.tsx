@@ -1,5 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 
+import { mockClubList } from "@/mocks/Club"
+
 import { AthleticTagPageView } from "./View"
 
 export default {
@@ -12,4 +14,7 @@ const Template: ComponentStory<typeof AthleticTagPageView> = (args) => (
 )
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  label: "サッカー",
+  clubs: mockClubList,
+}
