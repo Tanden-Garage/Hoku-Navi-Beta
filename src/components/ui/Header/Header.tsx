@@ -1,10 +1,14 @@
 import { VFC } from "react"
 
+import { Anchor } from "@/components/ui/Anchor"
+
 export const Header: VFC = () => {
   return (
     <div className="rounded-md shadow navbar bg-base-100">
       <div className="flex-1">
-        <a className="text-xl normal-case btn btn-ghost">Logo</a>
+        <Anchor href="/" className="text-xl normal-case btn btn-ghost">
+          Logo
+        </Anchor>
       </div>
 
       <div className="flex-none">
