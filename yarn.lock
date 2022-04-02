@@ -8240,6 +8240,11 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz#0fbdcf3e13fe4994781280524f8b96b0cdff9c61"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
+next-head-seo@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/next-head-seo/-/next-head-seo-0.1.3.tgz#d1b47711a3c467d25868d88209e08321edfd52a8"
+  integrity sha512-81vhTbe5CIi+fF12m2Zd4zCbw5rY65DRJC4y0GDIcvku7AzeQsHsuHWfROBANhWk1Fv7A33IDTJMn31owgoxkQ==
+
 next-themes@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/next-themes/-/next-themes-0.1.1.tgz#122113a458bf1d1be5ffed66778ab924c106f82a"
