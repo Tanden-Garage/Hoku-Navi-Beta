@@ -1,6 +1,6 @@
 import { TopPageView } from "@/components/page/Top/View"
 
-import { SEO } from "@/components/functional/SEO/SEO"
+import { SEO } from "@/components/functional/SEO"
 
 import type { NextPage } from "next"
 
