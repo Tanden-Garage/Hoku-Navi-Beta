@@ -30,8 +30,6 @@ export const Header: VFC = () => {
         </button>
       </div>
 
-      <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-
       <div className="flex-none">
         <label htmlFor="my-drawer" className="btn btn-square btn-ghost">
           <svg
