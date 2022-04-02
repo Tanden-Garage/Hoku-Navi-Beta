@@ -1,10 +1,9 @@
+import { NextPageWithLayout } from "next"
 import Head from "next/head"
 
 import { TopPageView } from "@/components/page/Top/View"
 
-import type { NextPage } from "next"
-
-export const TopPage: NextPage = () => {
+export const TopPage: NextPageWithLayout = () => {
   return (
     <>
       <Head>
