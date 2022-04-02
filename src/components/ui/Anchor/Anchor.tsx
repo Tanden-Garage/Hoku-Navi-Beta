@@ -6,17 +6,12 @@ type AnchorTagProps = ComponentProps<"a">
 
 interface AnchorProps extends AnchorTagProps {
   className?: string
-  isExtarnal?: boolean
 }
 
-export const Anchor: FC<AnchorProps> = ({
-  children,
-  className,
-  isExtarnal = false,
-  ...props
-}) => {
+export const Anchor: FC<AnchorProps> = ({ children, className, ...props }) => {
   const { href } = props
-  const target = isExtarnal ? "_blank" : "_self"
+  const isInternal = href?.startsWith("/")
+  const target = isInternal ? "_self" : "_blank"
 
   return (
     <Link href={href ?? "/404"}>
@@ -24,7 +19,7 @@ export const Anchor: FC<AnchorProps> = ({
         {...props}
         target={target}
         rel="noopener noreferer"
-        className={`link ${className}`}
+        className={`link no-underline ${className}`}
       >
         {children}
       </a>
