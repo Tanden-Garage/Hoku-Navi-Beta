@@ -2,30 +2,53 @@ import { VFC } from "react"
 
 import { Anchor } from "@/components/ui/Anchor"
 
-// TODO: リンクの内容を考える
+const SERVICES_ITEMS = [
+  { label: "運動系のすべてのタグ", href: "/athletic" },
+  { label: "文化系のすべてのタグ", href: "/cultural" },
+  { label: "掲載団体さくいん", href: "/all" },
+]
+
+const ABOUT_ITEMS = [
+  { label: "このサイトについて", href: "/about" },
+  { label: "サイト運営団体について", href: "/my_id" }, //TODO: 正規のIDを入れる
+  { label: "メンバー募集", href: "/recruite" },
+  { label: "お問い合わせ", href: "/contact" },
+]
+
+const LEGAL_ITEMS = [
+  { label: "利用規約", href: "/terms" },
+  { label: "プライバシーポリシー", href: "/privacy" },
+]
+
 export const Footer: VFC = () => {
   return (
     <>
       <footer className="p-10 footer bg-base-200 text-base-content">
         <div>
           <span className="footer-title">Services</span>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          {SERVICES_ITEMS.map((item) => (
+            <Anchor href={item.href} key={item.href}>
+              {item.label}
+            </Anchor>
+          ))}
         </div>
+
         <div>
-          <span className="footer-title">Company</span>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
+          <span className="footer-title">About</span>
+          {ABOUT_ITEMS.map((item) => (
+            <Anchor href={item.href} key={item.href}>
+              {item.label}
+            </Anchor>
+          ))}
         </div>
+
         <div>
           <span className="footer-title">Legal</span>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
+          {LEGAL_ITEMS.map((item) => (
+            <Anchor href={item.href} key={item.href}>
+              {item.label}
+            </Anchor>
+          ))}
         </div>
       </footer>
 
