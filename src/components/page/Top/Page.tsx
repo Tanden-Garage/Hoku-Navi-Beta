@@ -7,7 +7,7 @@ import type { NextPage } from "next"
 export const TopPage: NextPage = () => {
   return (
     <>
-      <SEO path="/" />
+      <SEO path="/" noTitleTemplate />
 
       <TopPageView />
     </>
