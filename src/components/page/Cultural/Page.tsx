@@ -2,9 +2,9 @@ import Head from "next/head"
 
 import { CulturalPageView } from "./View"
 
-import type { NextPage } from "next"
+import type { NextPageWithLayout } from "next"
 
-export const CulturalPage: NextPage = () => {
+export const CulturalPage: NextPageWithLayout = () => {
   return (
     <>
       <Head>
