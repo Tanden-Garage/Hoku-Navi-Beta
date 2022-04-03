@@ -52,7 +52,13 @@ export const TopPageView: VFC = () => {
 const AthView: VFC = () => {
   return (
     <div>
-      <TagList label={"人気の運動系タグ"} tags={ATHLETIC_TAG_POPULAR} />
+      <div className="prose">
+        <h2>人気の運動系タグ</h2>
+      </div>
+
+      <Spacer size={8} />
+
+      <TagList tags={ATHLETIC_TAG_POPULAR} />
     </div>
   )
 }
@@ -60,7 +66,13 @@ const AthView: VFC = () => {
 const CulView: VFC = () => {
   return (
     <div>
-      <TagList label={"人気の文化系タグ"} tags={CULTURAL_TAG_POPULAR} />
+      <div className="pl-8 prose">
+        <h2>人気の文化系タグ</h2>
+      </div>
+
+      <Spacer size={4} />
+
+      <TagList tags={CULTURAL_TAG_POPULAR} />
     </div>
   )
 }
