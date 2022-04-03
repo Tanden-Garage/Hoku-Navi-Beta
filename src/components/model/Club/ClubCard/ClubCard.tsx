@@ -1,9 +1,9 @@
-import Image from "next/image"
 import { VFC } from "react"
 
 import { ClubProps } from "@/types/Club"
 
 import { Anchor } from "@/components/ui/Anchor"
+import { Img } from "@/components/ui/Img"
 
 export const ClubCard: VFC<ClubProps> = ({ club }) => {
   const { id, name } = club
@@ -14,7 +14,7 @@ export const ClubCard: VFC<ClubProps> = ({ club }) => {
     <Anchor className="no-underline" href={`/${id}`}>
       <div className="w-80 border-2 shadow-xl card bg-base-100">
         <figure className="m-0 rounded-t-xl">
-          <Image
+          <Img
             className="p-0 m-0 rounded-t-xl"
             src={imgSrc}
             width={400}
