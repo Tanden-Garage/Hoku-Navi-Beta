@@ -11,8 +11,8 @@ import type { NextPage } from "next"
 export const AthleticTagPage: NextPage = () => {
   const router = useRouter()
 
-  const path = router.asPath
-  const label = ATHLETIC_TAG_ALL.filter((tag) => tag.path === path)[0]?.label
+  const path = router.asPath // /athletic/[category]のこと
+  const tagName = ATHLETIC_TAG_ALL.filter((tag) => tag.path === path)[0]?.label
 
   return (
     <>
@@ -22,7 +22,7 @@ export const AthleticTagPage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <AthleticTagPageView label={label} clubs={mockClubList} />
+      <AthleticTagPageView tagName={tagName} clubs={mockClubList} />
     </>
   )
 }

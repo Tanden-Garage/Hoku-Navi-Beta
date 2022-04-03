@@ -11,8 +11,8 @@ import type { NextPage } from "next"
 export const CulturalTagPage: NextPage = () => {
   const router = useRouter()
 
-  const path = router.asPath
-  const label = CULTURAL_TAG_ALL.filter((tag) => tag.path === path)[0]?.label
+  const path = router.asPath // /cultual/[category]のこと
+  const tagName = CULTURAL_TAG_ALL.filter((tag) => tag.path === path)[0]?.label
 
   return (
     <>
@@ -22,7 +22,7 @@ export const CulturalTagPage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <CulturalTagPageView label={label} clubs={mockClubList} />
+      <CulturalTagPageView tagName={tagName} clubs={mockClubList} />
     </>
   )
 }

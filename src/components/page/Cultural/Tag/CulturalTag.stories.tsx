@@ -15,6 +15,6 @@ const Template: ComponentStory<typeof CulturalTagPageView> = (args) => (
 
 export const Default = Template.bind({})
 Default.args = {
-  label: "文化・芸術",
+  tagName: "文化・芸術",
   clubs: mockClubList,
 }

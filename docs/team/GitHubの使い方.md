@@ -19,3 +19,4 @@
 
 - `feat:`：追加
 - `tune:`：修正・調整
+- `car`: プルリクレビュー後の修正（Correction after review）

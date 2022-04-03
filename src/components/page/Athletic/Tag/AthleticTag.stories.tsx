@@ -15,6 +15,6 @@ const Template: ComponentStory<typeof AthleticTagPageView> = (args) => (
 
 export const Default = Template.bind({})
 Default.args = {
-  label: "サッカー",
+  tagName: "サッカー",
   clubs: mockClubList,
 }
