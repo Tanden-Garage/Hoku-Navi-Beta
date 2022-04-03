@@ -1,10 +1,10 @@
-import { TopPageView } from "@/components/page/Top/View"
+import { NextPageWithLayout } from "next"
 
+import { TopPageView } from "@/components/page/Top/View"
+        
 import { SEO } from "@/components/functional/SEO"
 
-import type { NextPage } from "next"
-
-export const TopPage: NextPage = () => {
+export const TopPage: NextPageWithLayout = () => {
   return (
     <>
       <SEO path="/" noTitleTemplate />

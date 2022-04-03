@@ -11,6 +11,12 @@ questions:
 
 ```ts
 import { {{ inputs.name | pascal }}Page } from "./Page"
+
+import { Layout } from "@/components/layout"
+
+{{ inputs.name | pascal }}Page.getLayout = (page) => <Layout>{page}</Layout>
+
+
 export default {{ inputs.name | pascal }}Page
 ```
 
@@ -21,9 +27,9 @@ import Head from "next/head"
 
 import { {{ inputs.name | pascal }}PageView } from "./View"
 
-import type { NextPage } from "next"
+import type { NextPageWithLayout } from "next"
 
-export const {{ inputs.name | pascal }}Page: NextPage = () => {
+export const {{ inputs.name | pascal }}Page: NextPageWithLayout = () => {
   return (
     <>
       <Head>

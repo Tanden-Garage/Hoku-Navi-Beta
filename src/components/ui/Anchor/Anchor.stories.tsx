@@ -26,7 +26,6 @@ Primary.args = {
 export const Extarnal = Template.bind({})
 Extarnal.args = {
   href: "https://zenn.dev/takepepe/articles/atoms-type-definitions",
-  isExtarnal: true,
 }
 
 export const NoHref = Template.bind({})
