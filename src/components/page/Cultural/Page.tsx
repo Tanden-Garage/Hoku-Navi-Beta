@@ -1,4 +1,4 @@
-import Head from "next/head"
+import { MySEO } from "@/components/functional/SEO"
 
 import { CulturalPageView } from "./View"
 
@@ -7,11 +7,11 @@ import type { NextPageWithLayout } from "next"
 export const CulturalPage: NextPageWithLayout = () => {
   return (
     <>
-      <Head>
-        <title>Cultural</title>
-        <meta name="description" content="Write page description here." />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <MySEO
+        path="/cultural"
+        title="すべての文化系のタグ一覧"
+        description="文化系団体のすべてのタグ一覧"
+      />
 
       <CulturalPageView />
     </>
