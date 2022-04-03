@@ -3,17 +3,18 @@ import { VFC } from "react"
 
 import type { ImageProps, ImageLoader } from "next/image"
 
-const normalizeSrc = (src: string) => {
-  return src.startsWith("/") ? src.slice(1) : src
-}
+const IS_DEV = process.env.NODE_ENV === "development"
 
 const cloudflareLoader: ImageLoader = ({ src, width, quality }) => {
-  const params = [`width=${width}`]
-  if (quality) {
-    params.push(`quality=${quality}`)
+  if (!quality) {
+    quality = 75
   }
-  const paramsString = params.join(",")
-  return `/cdn-cgi/image/${paramsString}/${normalizeSrc(src)}`
+
+  const host = IS_DEV ? "localhost:3000" : "hoku-navi-beta.pages.dev"
+
+  const imgSrc = src.startsWith("/") ? host + src : src
+
+  return `https://image-optimization.vintagenavyblue09143353.workers.dev?width=${width}&quality=${quality}&image=${imgSrc}`
 }
 
 interface ImgProps extends ImageProps {
@@ -21,8 +22,7 @@ interface ImgProps extends ImageProps {
 }
 
 export const Img: VFC<ImgProps> = ({ alt, ...props }) => {
-  if (process.env.NODE_ENV === "development")
-    return <Image {...props} alt={alt} />
+  if (IS_DEV) return <Image {...props} alt={alt} />
 
   return <Image {...props} loader={cloudflareLoader} alt={alt} />
 }
