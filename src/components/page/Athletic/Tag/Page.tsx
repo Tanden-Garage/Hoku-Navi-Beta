@@ -1,6 +1,6 @@
-import Head from "next/head"
 import { useRouter } from "next/router"
 
+import { MySEO } from "@/components/functional/SEO"
 import { ATHLETIC_TAG_ALL } from "@/constant/tag"
 import { mockClubList } from "@/mocks/Club"
 
@@ -16,11 +16,11 @@ export const AthleticTagPage: NextPage = () => {
 
   return (
     <>
-      <Head>
-        <title>AthleticTag</title>
-        <meta name="description" content="Write page description here." />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <MySEO
+        path={path}
+        title={`${tagName}の団体一覧`}
+        description={`北海道大学の${tagName}の団体を探してみよう`}
+      />
 
       <AthleticTagPageView tagName={tagName} clubs={mockClubList} />
     </>

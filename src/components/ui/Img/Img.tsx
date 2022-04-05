@@ -22,7 +22,5 @@ interface ImgProps extends ImageProps {
 }
 
 export const Img: VFC<ImgProps> = ({ alt, ...props }) => {
-  if (IS_DEV) return <Image {...props} alt={alt} />
-
   return <Image {...props} loader={cloudflareLoader} alt={alt} />
 }

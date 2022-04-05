@@ -28,19 +28,14 @@ export const Tag: VFC<TagProps> = ({ tag }) => {
 
 interface TagListProps {
   tags: Tag[]
-  label: string
 }
 
-export const TagList: VFC<TagListProps> = ({ tags, label }) => {
+export const TagList: VFC<TagListProps> = ({ tags }) => {
   return (
-    <div className="prose">
-      <h2>{label}</h2>
-
-      <div className="flex flex-wrap gap-2">
-        {tags.map((tag) => (
-          <Tag tag={tag} key={tag.path} />
-        ))}
-      </div>
+    <div className="flex flex-wrap gap-4 justify-center">
+      {tags.map((tag) => (
+        <Tag tag={tag} key={tag.path} />
+      ))}
     </div>
   )
 }
