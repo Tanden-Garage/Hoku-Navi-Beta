@@ -44,11 +44,23 @@ export const AthleticTagPageView: VFC<Props> = ({ tagName, clubs }) => {
 
       <Spacer size={12} />
 
-      <TagList tags={ATHLETIC_TAG_FOR_ATHLETIC} label="他の運動系も探す" />
+      <div className="prose">
+        <h2>他の運動系も探す</h2>
+      </div>
+
+      <Spacer size={8} />
+
+      <TagList tags={ATHLETIC_TAG_FOR_ATHLETIC} />
 
       <Spacer size={12} />
 
-      <TagList tags={CULTURAL_TAG_ALL} label="文化系も探してみる" />
+      <div className="prose">
+        <h2>文化系も探してみる</h2>
+      </div>
+
+      <Spacer size={8} />
+
+      <TagList tags={CULTURAL_TAG_ALL} />
     </main>
   )
 }

@@ -11,7 +11,7 @@ export const Layout: FC = ({ children }) => {
 
       <div className="drawer-content">
         <Header />
-        <main className="p-1">{children}</main>
+        {children}
         <Footer />
       </div>
 
