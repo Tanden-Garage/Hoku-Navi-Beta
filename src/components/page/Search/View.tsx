@@ -1,6 +1,6 @@
 import clsx from "clsx"
 import { useRouter } from "next/router"
-import { useCallback, VFC } from "react"
+import { VFC } from "react"
 
 import { Club } from "@/types/Club"
 
@@ -25,28 +25,20 @@ export const SearchPageView: VFC<SearchPageProps> = ({
   const router = useRouter()
 
   const textLengthLimit = 10
-  const isLong = searchText?.length > textLengthLimit
-  const truncatedText = searchText?.substring(0, textLengthLimit)
+  const isLong = searchText.length > textLengthLimit
+  const truncatedText = searchText.substring(0, textLengthLimit)
   const serachTitle = isLong ? truncatedText + "..." : truncatedText
 
   const isFirst = currentPage === 1
   const hasResult = clubs.length !== 0
 
-  const toPrev = useCallback(() => {
+  const toPrev = () => {
     router.push(`/search?text=${searchText}&page=${currentPage - 1}`)
-  }, [currentPage, router, searchText])
+  }
 
-  const toNext = useCallback(() => {
+  const toNext = () => {
     router.push(`/search?text=${searchText}&page=${currentPage + 1}`)
-  }, [currentPage, router, searchText])
-
-  // router.queryからsearchTextを取得するのに少しラグがあるようなので
-  if (!searchText)
-    return (
-      <div className="flex flex-col items-center p-4 h-screen prose">
-        <h1>Loading...</h1>
-      </div>
-    )
+  }
 
   return (
     <main className="flex flex-col items-center p-4 min-h-screen">

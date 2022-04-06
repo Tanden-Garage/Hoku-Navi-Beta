@@ -21,12 +21,19 @@ export const SearchPage: NextPageWithLayout = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <SearchPageView
-        currentPage={currentPage}
-        hasNext={true}
-        searchText={text as string}
-        clubs={mockClubList}
-      />
+      {!text ? (
+        // router.queryからsearchTextを取得するのに少しラグがあるようなので
+        <div className="flex flex-col items-center p-4 h-screen text-center prose">
+          <h1>Loading...</h1>
+        </div>
+      ) : (
+        <SearchPageView
+          currentPage={currentPage}
+          hasNext={true}
+          searchText={text as string}
+          clubs={mockClubList}
+        />
+      )}
     </>
   )
 }
