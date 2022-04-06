@@ -4,18 +4,22 @@ root: "."
 output: "**/*"
 ignore: []
 questions:
-  name: "Please enter component name"
+  name: "Please enter page name"
+  pathForComponentDir: "Please enter path in conmponents directory"
+  pathForPagesDir: "Please enter path in pages directory"
 ---
 
-# `src/components/page/{{ inputs.name | pascal }}/index.ts`
+# `src/pages/{{ inputs.pathForPagesDir }}/index.tsx`
 
 ```ts
-import { {{ inputs.name | pascal }}Page } from "./Page"
+import { {{ inputs.name | pascal }}Page } from "@/components/page/{{ inputs.pathForComponentDir }}"
 
 import { Layout } from "@/components/layout"
 
 {{ inputs.name | pascal }}Page.getLayout = (page) => <Layout>{page}</Layout>
 
+export default TopPage
+```
 
 export default {{ inputs.name | pascal }}Page
 ```
