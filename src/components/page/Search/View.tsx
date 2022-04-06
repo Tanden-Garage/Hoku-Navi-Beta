@@ -40,6 +40,7 @@ export const SearchPageView: VFC<SearchPageProps> = ({
     router.push(`/search?text=${searchText}&page=${currentPage + 1}`)
   }, [currentPage, router, searchText])
 
+  // router.queryからsearchTextを取得するのに少しラグがあるようなので
   if (!searchText)
     return (
       <div className="flex flex-col items-center p-4 h-screen prose">
