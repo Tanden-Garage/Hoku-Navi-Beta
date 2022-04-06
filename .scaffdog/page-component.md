@@ -21,10 +21,14 @@ import { Layout } from "@/components/layout"
 export default TopPage
 ```
 
+# `src/components/page/{{ inputs.pathForComponentDir }}/index.ts`
+
+```ts
+import { {{ inputs.name | pascal }}Page } from "./Page"
 export default {{ inputs.name | pascal }}Page
 ```
 
-# `src/components/page/{{ inputs.name | pascal }}/Page.tsx`
+# `src/components/page/{{ inputs.pathForComponentDir }}/Page.tsx`
 
 ```tsx
 import Head from "next/head"
@@ -51,7 +55,7 @@ export const {{ inputs.name | pascal }}Page: NextPageWithLayout = () => {
 }
 ```
 
-# `src/components/page/{{ inputs.name | pascal }}/View.tsx`
+# `src/components/page/{{ inputs.pathForComponentDir }}/View.tsx`
 
 ```tsx
 import type { VFC } from "react"
@@ -65,7 +69,7 @@ export const {{ inputs.name | pascal }}PageView: VFC = () => {
 }
 ```
 
-# `src/components/page/{{ inputs.name | pascal }}/{{ inputs.name | pascal }}.stories.tsx`
+# `src/components/page/{{ inputs.pathForComponentDir }}/{{ inputs.pathForComponentDir | pascal }}.stories.tsx`
 
 ```tsx
 import { ComponentStory, ComponentMeta } from "@storybook/react"
@@ -73,7 +77,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react"
 import { {{ inputs.name | pascal }}PageView } from "./View"
 
 export default {
-  title: "Page/{{ inputs.name | pascal }}",
+  title: "Page{{ inputs.pathForComponentDir }}",
   component: {{ inputs.name | pascal }}PageView,
 } as ComponentMeta<typeof {{ inputs.name | pascal }}PageView>;
 
