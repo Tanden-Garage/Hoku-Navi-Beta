@@ -30,6 +30,7 @@ export const SearchPageView: VFC<SearchPageProps> = ({
   const serachTitle = isLong ? truncatedText + "..." : truncatedText
 
   const isFirst = currentPage === 1
+  const hasResult = clubs.length !== 0
 
   const toPrev = useCallback(() => {
     router.push(`/search?text=${searchText}&page=${currentPage - 1}`)
@@ -39,8 +40,15 @@ export const SearchPageView: VFC<SearchPageProps> = ({
     router.push(`/search?text=${searchText}&page=${currentPage + 1}`)
   }, [currentPage, router, searchText])
 
+  if (!searchText)
+    return (
+      <div className="flex flex-col items-center p-4 h-screen prose">
+        <h1>Loading...</h1>
+      </div>
+    )
+
   return (
-    <main className="flex flex-col justify-center items-center p-4">
+    <main className="flex flex-col items-center p-4 min-h-screen">
       <div className="text-sm breadcrumbs">
         <ul>
           <li>
@@ -85,31 +93,45 @@ export const SearchPageView: VFC<SearchPageProps> = ({
 
       <Spacer size={12} />
 
-      <div className="grid gap-12">
-        {clubs.map((club) => (
-          <ClubCard club={club} key={club.id} />
-        ))}
-      </div>
+      {hasResult ? (
+        <>
+          <div className="grid gap-12">
+            {clubs.map((club) => (
+              <ClubCard club={club} key={club.id} />
+            ))}
+          </div>
 
-      <Spacer size={12} />
+          <Spacer size={12} />
 
-      <div className="btn-group ">
-        <button
-          disabled={isFirst}
-          onClick={toPrev}
-          className={clsx("btn", "btn-primary", isFirst && "btn-disabled")}
-        >
-          «
-        </button>
-        <button className="btn btn-primary">Page {currentPage}</button>
-        <button
-          disabled={!hasNext}
-          onClick={toNext}
-          className={clsx("btn", "btn-primary", !hasNext && "btn-disabled")}
-        >
-          »
-        </button>
-      </div>
+          <div className="btn-group ">
+            <button
+              disabled={isFirst}
+              onClick={toPrev}
+              className={clsx("btn", "btn-primary", isFirst && "btn-disabled")}
+            >
+              «
+            </button>
+            <button className="btn btn-primary">Page {currentPage}</button>
+            <button
+              disabled={!hasNext}
+              onClick={toNext}
+              className={clsx("btn", "btn-primary", !hasNext && "btn-disabled")}
+            >
+              »
+            </button>
+          </div>
+        </>
+      ) : (
+        <NoResuleScreen />
+      )}
     </main>
   )
 }
+
+const NoResuleScreen: VFC = () => (
+  <div className="text-center prose">
+    <h1>Sorry!</h1>
+    <p>お探しの団体は見つかりませんでした😭</p>
+    <p>別の検索ワードを試してみてくださいね🔍</p>
+  </div>
+)
