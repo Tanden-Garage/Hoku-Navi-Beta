@@ -1,6 +1,6 @@
-import Head from "next/head"
 import { useRouter } from "next/router"
 
+import { MySEO } from "@/components/functional/SEO"
 import { mockClubList } from "@/mocks/Club"
 
 import { SearchPageView } from "./View"
@@ -15,11 +15,11 @@ export const SearchPage: NextPageWithLayout = () => {
 
   return (
     <>
-      <Head>
-        <title>search</title>
-        <meta name="description" content="Write page description here." />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <MySEO
+        path="/search"
+        title={`「${text}」の検索結果`}
+        description={`北大の部活・サークル紹介の中で「${text}」を含むページの一覧です `}
+      />
 
       {!text ? (
         // router.queryからsearchTextを取得するのに少しラグがあるようなので
