@@ -1,7 +1,7 @@
 import { ErrorMessage } from "@hookform/error-message"
 import clsx from "clsx"
 import { useState, VFC } from "react"
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm } from "react-hook-form"
 
 import { Anchor } from "@/components/ui/Anchor"
 import { Spacer } from "@/components/ui/Spacer"
@@ -25,8 +25,8 @@ export const ContactPageView: VFC = () => {
     defaultValues: defaultValues,
   })
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
-    console.log({ data })
+  const onSubmit = () => {
+    // ここでPOSTを行う
     setIsModalOn(true)
   }
 
@@ -63,7 +63,6 @@ export const ContactPageView: VFC = () => {
 
       <div className="text-center prose">
         <h1>お問い合わせ</h1>
-        <p>緑の枠線の項目は必須入力です</p>
       </div>
 
       <Spacer size={8} />
@@ -126,8 +125,8 @@ export const ContactPageView: VFC = () => {
             <p>今しばらくお待ち下さい</p>
 
             <Spacer size={8} />
-            <Anchor href="/">
-              <button className="btn btn-secondary">Topページへ</button>
+            <Anchor href="/" className="btn btn-secondary">
+              Topページへ
             </Anchor>
           </div>
         </div>
