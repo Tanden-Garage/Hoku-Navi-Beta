@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 
+import { Layout } from "@/components/layout"
 import { mockClubList } from "@/mocks/Club"
 
 import { SearchPageView } from "./View"
@@ -10,7 +11,9 @@ export default {
 } as ComponentMeta<typeof SearchPageView>
 
 const Template: ComponentStory<typeof SearchPageView> = (args) => (
-  <SearchPageView {...args} />
+  <Layout>
+    <SearchPageView {...args} />
+  </Layout>
 )
 
 export const Default = Template.bind({})
