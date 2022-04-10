@@ -1,6 +1,7 @@
 import { VFC } from "react"
 
 import { Anchor } from "@/components/ui/Anchor"
+import { SearchBar } from "@/components/ui/SearchBar"
 import { Spacer } from "@/components/ui/Spacer"
 
 const SIDEBAR_ITEMS_UPPER = [
@@ -35,14 +36,7 @@ export const Drawer: VFC = () => {
 
         <Spacer size={4} />
 
-        {/* TODO: 検索結果ページに移動する */}
-        <form>
-          <input
-            type="text"
-            placeholder="団体名を検索"
-            className="w-full max-w-xs input input-bordered"
-          />
-        </form>
+        <SearchBar />
 
         <Spacer size={12} />
 
