@@ -1,4 +1,4 @@
-import Head from "next/head"
+import { MySEO } from "@/components/functional/SEO"
 
 import { ContactPageView } from "./View"
 
@@ -7,14 +7,11 @@ import type { NextPageWithLayout } from "next"
 export const ContactPage: NextPageWithLayout = () => {
   return (
     <>
-      <Head>
-        <title>contact</title>
-        <meta
-          name="description"
-          content="Write page description here."
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <MySEO
+        path="/contact"
+        title="お問い合わせ"
+        description="サイトへのお問い合わせはこちらから"
+      />
 
       <ContactPageView />
     </>
