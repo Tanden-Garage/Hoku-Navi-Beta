@@ -25,7 +25,7 @@ export const SearchPageView: VFC<SearchPageProps> = ({
 }) => {
   const router = useRouter()
 
-  const textLengthLimit = 10
+  const textLengthLimit = 9 // ページの見出しがレスポンシブ対応時に3行以内に収まるようするため
   const isLong = searchText.length > textLengthLimit
   const truncatedText = searchText.substring(0, textLengthLimit)
   const serachTitle = isLong ? truncatedText + "..." : truncatedText
