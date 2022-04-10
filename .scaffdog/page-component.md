@@ -23,7 +23,8 @@ export default {{ inputs.name | pascal }}Page
 # `src/components/page/{{ inputs.name | pascal }}/Page.tsx`
 
 ```tsx
-import Head from "next/head"
+import { MySEO } from "@/components/functional/SEO"
+
 
 import { {{ inputs.name | pascal }}PageView } from "./View"
 
@@ -32,14 +33,11 @@ import type { NextPageWithLayout } from "next"
 export const {{ inputs.name | pascal }}Page: NextPageWithLayout = () => {
   return (
     <>
-      <Head>
-        <title>{{ inputs.name }}</title>
-        <meta
-          name="description"
-          content="Write page description here."
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <MySEO
+        path="{{ inputs.pathForPagesDir }}"
+        title="{{ inputs.name }}"
+        description="Write page description here."
+      />
 
       <{{ inputs.name | pascal }}PageView />
     </>
@@ -66,6 +64,8 @@ export const {{ inputs.name | pascal }}PageView: VFC = () => {
 ```tsx
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 
+import { Layout } from "@/components/layout"
+
 import { {{ inputs.name | pascal }}PageView } from "./View"
 
 export default {
@@ -74,7 +74,9 @@ export default {
 } as ComponentMeta<typeof {{ inputs.name | pascal }}PageView>;
 
 const Template: ComponentStory<typeof {{ inputs.name | pascal }}PageView> = (args) => (
-  <{{ inputs.name | pascal }}PageView {...args} />
+  <Layout>
+    <{{ inputs.name | pascal }}PageView {...args} />
+  </Layout>
 )
 
 export const Default = Template.bind({})
