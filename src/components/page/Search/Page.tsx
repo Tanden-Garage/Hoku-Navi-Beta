@@ -13,11 +13,13 @@ export const SearchPage: NextPageWithLayout = () => {
 
   const currentPage = Number(page)
 
+  const title = text === undefined ? "検索チュウ…" : `「${text}」の検索結果`
+
   return (
     <>
       <MySEO
         path="/search"
-        title={`「${text}」の検索結果`}
+        title={title}
         description={`北大の部活・サークル紹介の中で「${text}」を含むページの一覧です `}
       />
 
