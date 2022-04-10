@@ -15,7 +15,7 @@ export const defaultValues = {
 type FormValues = typeof defaultValues
 
 export const ContactPageView: FC = () => {
-  const [isValid, setIsValid] = useState(false)
+  const [isModalOn, setIsModalOn] = useState(true)
 
   const {
     handleSubmit,
@@ -36,8 +36,10 @@ export const ContactPageView: FC = () => {
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log({ data })
-    setIsValid(true)
+    setIsModalOn(true)
   }
+
+  const modalOff = () => setIsModalOn(false)
 
   return (
     <main className="flex flex-col justify-center items-center p-8  w-full">
@@ -138,13 +140,17 @@ export const ContactPageView: FC = () => {
             className="w-full max-w-lg textarea textarea-primary "
           />
         </div>
+        {/* TODO: 送信ボタンが押されると、フォームの中身がリセットされるようにする */}
         <button type="submit" className="btn btn-secondary">
           送信する
         </button>
       </form>
 
-      {isValid && (
-        <div className="flex absolute top-0 left-0 justify-center items-center p-4 w-full h-screen bg-primary/70">
+      {isModalOn && (
+        <div
+          onClick={modalOff}
+          className="flex absolute top-0 left-0 justify-center items-center p-4 w-full h-screen bg-slate-100/70"
+        >
           <div className="flex flex-col justify-center items-center p-4 w-full max-w-2xl h-1/2 bg-white rounded-xl">
             <div className="prose">
               <h2 className="">ありがとうございます！</h2>
