@@ -11,6 +11,7 @@
     "build-sb": "build-storybook"
   },
   "dependencies": {
+    "@hookform/error-message": "^2.0.0",
     "daisyui": "^2.13.6",
     "next": "12.1.4",
     "next-head-seo": "^0.1.3",
