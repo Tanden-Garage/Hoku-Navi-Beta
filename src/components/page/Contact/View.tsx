@@ -1,45 +1,61 @@
-import { FC, useState } from "react"
-import { useForm, SubmitHandler, FieldError } from "react-hook-form"
+import { ErrorMessage } from "@hookform/error-message"
+import clsx from "clsx"
+import { useState, VFC } from "react"
+import { useForm, SubmitHandler } from "react-hook-form"
 
 import { Anchor } from "@/components/ui/Anchor"
 import { Spacer } from "@/components/ui/Spacer"
 
-export const defaultValues = {
-  contacterName: "",
-  email: "",
-  clubName: "",
-  summary: "",
-  contents: "",
-}
+import {
+  FormValues,
+  defaultValues,
+  SUMMARY_VALIDATION_PROPS,
+  FORM_PROPS,
+} from "./data"
 
-type FormValues = typeof defaultValues
-
-export const ContactPageView: FC = () => {
-  const [isModalOn, setIsModalOn] = useState(true)
+export const ContactPageView: VFC = () => {
+  const [isModalOn, setIsModalOn] = useState(false)
 
   const {
     handleSubmit,
     register,
-    formState: { errors, submitCount },
+    formState: { errors },
+    reset,
   } = useForm<FormValues>({
     defaultValues: defaultValues,
-    mode: "onChange",
   })
-
-  const errorMessenger = (error: FieldError | undefined) => {
-    return submitCount !== 0 && error ? (
-      <p className="text-error">入力エラーです</p>
-    ) : (
-      ""
-    ) // 送信ボタンを押したあとにエラーメッセージを表示する
-  }
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log({ data })
     setIsModalOn(true)
   }
 
-  const modalOff = () => setIsModalOn(false)
+  const modalOff = () => {
+    reset(defaultValues)
+    setIsModalOn(false)
+  }
+
+  const Label: VFC<{ labelText: string; name: string; required?: boolean }> = ({
+    labelText,
+    name,
+    required = true,
+  }) => {
+    return (
+      <label className="label">
+        <span
+          className={clsx(
+            "label-text",
+            required && "after:content-['*']  after:text-error"
+          )}
+        >
+          {labelText}
+        </span>
+        <span className="label-text text-info-content">
+          <ErrorMessage errors={errors} name={name} />
+        </span>
+      </label>
+    )
+  }
 
   return (
     <main className="flex flex-col justify-center items-center p-8  w-full">
@@ -57,62 +73,9 @@ export const ContactPageView: FC = () => {
         className="flex flex-col gap-4 items-center w-full"
       >
         <div className="w-full max-w-lg">
-          <label className="label">
-            <span className="label-text">お名前</span>
-          </label>
-          {errorMessenger(errors.contacterName)}
-          <input
-            {...register("contacterName", {
-              required: true,
-              maxLength: 60,
-            })}
-            className="w-full max-w-lg input input-bordered input-primary"
-          />
-        </div>
-
-        <div className="w-full max-w-lg">
-          <label className="label">
-            <span className="label-text">メールアドレス</span>
-          </label>
-          {errorMessenger(errors.email)}
-          <input
-            {...register("email", {
-              required: true,
-              maxLength: 60,
-              pattern: {
-                value:
-                  /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]+.[A-Za-z0-9]+$/,
-                message: "メールアドレスの形式が不正です",
-              },
-            })}
-            className="w-full max-w-lg input input-bordered input-primary"
-          />
-          <label className="label"></label>
-        </div>
-
-        <div className="w-full max-w-lg">
-          <label className="label">
-            <span className="label-text">団体名</span>
-          </label>
-          {errorMessenger(errors.clubName)}
-          <input
-            {...register("clubName", {
-              required: false,
-              maxLength: 60,
-            })}
-            className="w-full max-w-lg input input-bordered "
-          />
-        </div>
-
-        <div className="w-full max-w-lg">
-          <label className="label">
-            <span className="label-text">お問い合わせの種類</span>
-          </label>
-          {errorMessenger(errors.summary)}
+          <Label labelText="お問い合わせの種類" name="summary" />
           <select
-            {...register("summary", {
-              required: true,
-            })}
+            {...register("summary", SUMMARY_VALIDATION_PROPS)}
             className="w-full max-w-lg select select-primary"
           >
             <option disabled selected>
@@ -127,20 +90,20 @@ export const ContactPageView: FC = () => {
           </span>
         </div>
 
-        <div className="w-full max-w-lg">
-          <label className="label">
-            <span className="label-text">お問い合わせ内容</span>
-          </label>
-          {errorMessenger(errors.contents)}
-          <textarea
-            {...register("contents", {
-              required: true,
-              maxLength: 3000,
-            })}
-            className="w-full max-w-lg textarea textarea-primary "
-          />
-        </div>
-        {/* TODO: 送信ボタンが押されると、フォームの中身がリセットされるようにする */}
+        {FORM_PROPS.map((item) => (
+          <div className="w-full max-w-lg " key={item.name}>
+            <Label
+              labelText={item.labelText}
+              name={item.name}
+              required={item.requierd}
+            />
+            <item.tag
+              {...register(item.name, item.validationProps)}
+              className={`w-full max-w-lg ${item.tag} ${item.tag}-bordered ${item.tag}-primary`}
+            />
+          </div>
+        ))}
+
         <button type="submit" className="btn btn-secondary">
           送信する
         </button>
