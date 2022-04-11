@@ -67,20 +67,5 @@
   },
   "msw": {
     "workerDirectory": "public"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
-    "globals": {
-      "ts-jest": {
-        "tsConfigFile": "tsconfig.json"
-      }
-    },
-    "testMatch": [
-      "**/__tests__/*.spec.+(ts|tsx|js)"
-    ]
   }
 }
