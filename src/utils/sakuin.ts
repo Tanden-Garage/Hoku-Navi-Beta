@@ -20,22 +20,6 @@ export const pretreatment = (items: ClubItem[]) => {
   return treatedItems
 }
 
-// ◯行で始まる団体の最初のやつを探す
-export const findFirstClubOfGyou = (sortedItems: ClubItem[], regExp: RegExp) =>
-  sortedItems.findIndex((item) => item.yomi[0].match(regExp) !== null)
-
-// 渡されたリストを◯行だけの配列と○行以降の配列に分ける
-export const sliceByGyou = (items: ClubItem[], regExp: RegExp) => {
-  const firstItemOfGyou = findFirstClubOfGyou(items, regExp)
-  const sliceIndex = firstItemOfGyou === -1 ? 0 : firstItemOfGyou
-  const [gyou, afterGyou] = [
-    items.slice(0, sliceIndex + 1),
-    items.slice(sliceIndex + 1),
-  ]
-
-  return [gyou, afterGyou]
-}
-
 // あ行、か行...ごとのかたまりにする
 export type ClubItem = { name: string; yomi: string; path: string }
 export type Gojuon = (items: ClubItem[]) => {
@@ -51,18 +35,32 @@ export type Gojuon = (items: ClubItem[]) => {
   わをん: ClubItem[]
 }
 
-export const sliceByGojuon: Gojuon = (items) => {
+export const convertToSakuin: Gojuon = (items) => {
+  const あ行: ClubItem[] = []
+  const か行: ClubItem[] = []
+  const さ行: ClubItem[] = []
+  const た行: ClubItem[] = []
+  const な行: ClubItem[] = []
+  const は行: ClubItem[] = []
+  const ま行: ClubItem[] = []
+  const や行: ClubItem[] = []
+  const ら行: ClubItem[] = []
+  const わをん: ClubItem[] = []
+
   const treatedItems = pretreatment(items)
 
-  const [あ行, あ行以降] = sliceByGyou(treatedItems, /[か-こが-ご]/u)
-  const [か行, か行以降] = sliceByGyou(あ行以降, /[さ-そざ-ぞ]/u)
-  const [さ行, さ行以降] = sliceByGyou(か行以降, /[た-とだ-ど]/u)
-  const [た行, た行以降] = sliceByGyou(さ行以降, /[な-の]/u)
-  const [な行, な行以降] = sliceByGyou(た行以降, /[は-ほば-ぼぱ-ぽ]/u)
-  const [は行, は行以降] = sliceByGyou(な行以降, /[ま-も]/u)
-  const [ま行, ま行以降] = sliceByGyou(は行以降, /[や-よ]/u)
-  const [や行, や行以降] = sliceByGyou(ま行以降, /[ら-ろ]/u)
-  const [ら行, わをん] = sliceByGyou(や行以降, /[わ-ん]/u)
+  treatedItems.forEach((item) => {
+    if (/[あ-お]/.test(item.yomi[0])) あ行.push(item)
+    if (/[か-こが-ご]/.test(item.yomi[0])) か行.push(item)
+    if (/[さ-そざ-ぞ]/.test(item.yomi[0])) さ行.push(item)
+    if (/[た-とだ-ど]/.test(item.yomi[0])) た行.push(item)
+    if (/[な-の]/.test(item.yomi[0])) な行.push(item)
+    if (/[は-ほば-ぼぱ-ぽ]/.test(item.yomi[0])) は行.push(item)
+    if (/[ま-も]/.test(item.yomi[0])) ま行.push(item)
+    if (/[や-よ]/.test(item.yomi[0])) や行.push(item)
+    if (/[ら-ろ]/.test(item.yomi[0])) ら行.push(item)
+    if (/[わ-ん]/.test(item.yomi[0])) わをん.push(item)
+  })
 
   return {
     あ行,
