@@ -1,126 +1,135 @@
-import { ClubItem, Gojuon, removeHokudai, sliceByGojuon, sort } from "../sakuin"
+import {
+  findFirstClubOfGyou,
+  pretreatment,
+  removeHokudai,
+  removeHokudaiFromList,
+  sliceByGojuon,
+  sliceByGyou,
+} from "../sakuin"
+import {
+  sortedAndHokudaiRemovedItems,
+  あ行とあ行以降,
+  ほくだい除去後,
+  処理前,
+  処理済み,
+} from "./data"
 
-// describe("removeHokudai() のテスト", () => {
-//   it("ほくだい", () => {
-//     expect(removeHokudai("ほくだいさっかーぶ")).toBe("さっかーぶ")
-//   })
+describe("removeHokudai()", () => {
+  it("ほくだい", () => {
+    expect(removeHokudai("ほくだいさっかーぶ")).toBe("さっかーぶ")
+  })
 
-//   it("ほっかいどうだいがく", () => {
-//     expect(removeHokudai("ほっかいどうだいがくさっかーぶ")).toBe("さっかーぶ")
-//   })
+  it("ほっかいどうだいがく", () => {
+    expect(removeHokudai("ほっかいどうだいがくさっかーぶ")).toBe("さっかーぶ")
+  })
 
-//   it("なし", () => {
-//     expect(removeHokudai("さっかーぶ")).toBe("さっかーぶ")
-//   })
-// })
+  it("なし", () => {
+    expect(removeHokudai("さっかーぶ")).toBe("さっかーぶ")
+  })
+})
 
-const 処理前: ClubItem[] = [
-  {
-    name: "北大サッカー部",
-    yomi: "ほくだいさっかーぶ",
-    path: "/athletic/soccer",
-  },
-  {
-    name: "北大フットサル部",
-    yomi: "ほくだいふっとさるぶ",
-    path: "/athletic/footsul",
-  },
-  {
-    name: "北大医学部サッカー部",
-    yomi: "ほくだいいがくぶさっかーぶ",
-    path: "/athletic/med-soccer",
-  },
-  {
-    name: "北海道大学歯学部サッカー部",
-    yomi: "ほっかいどうだいがくしがくぶさっかーぶ",
-    path: "/athletic/teeth-soccer",
-  },
-  {
-    name: "らららサッカー部",
-    yomi: "らららさっかーぶ",
-    path: "/athletic/rarara-soccer",
-  },
-]
+describe("removeHokudaiFromList()", () => {
+  it("リストの全アイテムに対してremoveHokudai()", () => {
+    const hokudaiRemovedItems = removeHokudaiFromList(処理前)
 
-const sortedAndHokudaiRemovedItems = [
-  {
-    name: "北大医学部サッカー部",
-    yomi: "いがくぶさっかーぶ",
-    path: "/athletic/med-soccer",
-  },
-  {
-    name: "北大サッカー部",
-    yomi: "さっかーぶ",
-    path: "/athletic/soccer",
-  },
-  {
-    name: "北海道大学歯学部サッカー部",
-    yomi: "しがくぶさっかーぶ",
-    path: "/athletic/teeth-soccer",
-  },
-  {
-    name: "北大フットサル部",
-    yomi: "ふっとさるぶ",
-    path: "/athletic/footsul",
-  },
-  {
-    name: "らららサッカー部",
-    yomi: "らららさっかーぶ",
-    path: "/athletic/rarara-soccer",
-  },
-]
+    expect(hokudaiRemovedItems).toStrictEqual(ほくだい除去後)
+  })
+})
 
-type R = ReturnType<Gojuon>
+describe("pretreatment()", () => {
+  it("ほくだいの除去+sort", () => {
+    const treatedItems = pretreatment(処理前)
 
-const 処理済み: R = {
-  あ行: [
-    {
-      name: "北大医学部サッカー部",
-      yomi: "いがくぶさっかーぶ",
-      path: "/athletic/med-soccer",
-    },
-  ],
-  か行: [],
-  さ行: [
-    {
-      name: "北大サッカー部",
-      yomi: "さっかーぶ",
-      path: "/athletic/soccer",
-    },
-    {
-      name: "北海道大学歯学部サッカー部",
-      yomi: "しがくぶさっかーぶ",
-      path: "/athletic/teeth-soccer",
-    },
-  ],
-  た行: [],
-  な行: [],
-  は行: [
-    {
-      name: "北大フットサル部",
-      yomi: "ふっとさるぶ",
-      path: "/athletic/footsul",
-    },
-  ],
-  ま行: [],
-  や行: [],
-  ら行: [
-    {
-      name: "らららサッカー部",
-      yomi: "らららさっかーぶ",
-      path: "/athletic/rarara-soccer",
-    },
-  ],
-  わをん: [],
-}
+    expect(treatedItems).toStrictEqual(sortedAndHokudaiRemovedItems)
+  })
+})
 
-describe("removeHokudai()*sort() のテスト", () => {
-  it("お願い", () => {
-    const hokudaiRemovedItems = 処理前.map((item) => {
-      return { ...item, yomi: removeHokudai(item.yomi) }
-    })
-    expect(sort(hokudaiRemovedItems)).toStrictEqual(
-      sortedAndHokudaiRemovedItems
+describe("findFirstClubOfGyou()", () => {
+  it("か行で始まる団体の最初のやつを探す()", () => {
+    const treatedItems = pretreatment(処理前)
+
+    const か行以降の最初の位置 = findFirstClubOfGyou(
+      treatedItems,
+      /[か-こが-ご]/u
+    )
+
+    expect(か行以降の最初の位置).toStrictEqual(-1)
+  })
+
+  it("さ行で始まる団体の最初のやつを探す()", () => {
+    const treatedItems = pretreatment(処理前)
+
+    const さ行以降の最初の位置 = findFirstClubOfGyou(
+      treatedItems,
+      /[さ-そざ-ぞ]/u
+    )
+
+    expect(さ行以降の最初の位置).toStrictEqual(1)
+  })
+
+  it("た行で始まる団体の最初のやつを探す()", () => {
+    const treatedItems = pretreatment(処理前)
+
+    const た行以降の最初の位置 = findFirstClubOfGyou(
+      treatedItems,
+      /[た-とだ-ど]/u
+    )
+
+    expect(た行以降の最初の位置).toStrictEqual(-1)
+  })
+
+  it("な行で始まる団体の最初のやつを探す()", () => {
+    const treatedItems = pretreatment(処理前)
+
+    const な行以降の最初の位置 = findFirstClubOfGyou(treatedItems, /[な-の]/u)
+
+    expect(な行以降の最初の位置).toStrictEqual(-1)
+  })
+
+  it("は行で始まる団体の最初のやつを探す()", () => {
+    const treatedItems = pretreatment(処理前)
+
+    const は行以降の最初の位置 = findFirstClubOfGyou(
+      treatedItems,
+      /[は-ほば-ぼぱ-ぽ]/u
+    )
+
+    expect(は行以降の最初の位置).toStrictEqual(3)
+  })
+
+  it("ま行で始まる団体の最初のやつを探す()", () => {
+    const treatedItems = pretreatment(処理前)
+
+    const ま行以降の最初の位置 = findFirstClubOfGyou(treatedItems, /[ま-も]/u)
+
+    expect(ま行以降の最初の位置).toStrictEqual(-1)
+  })
+
+  it("や行で始まる団体の最初のやつを探す()", () => {
+    const treatedItems = pretreatment(処理前)
+
+    const や行以降の最初の位置 = findFirstClubOfGyou(treatedItems, /[や-よ]/u)
+
+    expect(や行以降の最初の位置).toStrictEqual(-1)
+  })
+
+  it("ら行で始まる団体の最初のらつを探す()", () => {
+    const treatedItems = pretreatment(処理前)
+
+    const ら行以降の最初の位置 = findFirstClubOfGyou(treatedItems, /[ら-ろ]/u)
+
+    expect(ら行以降の最初の位置).toStrictEqual(4)
+  })
+})
+
+describe("sliceByGyou()", () => {
+  it("あ行とその他で分ける", () => {
+    const treatedItems = pretreatment(処理前)
+    const test = sliceByGyou(treatedItems, /[か-こが-ご]/)
+    console.log({ treatedItems, test })
+
+    expect(sliceByGyou(treatedItems, /[か-こが-ご]/)).toStrictEqual(
+      あ行とあ行以降
     )
   })
 })
@@ -159,16 +168,4 @@ describe("sliceByGojuon() のテスト", () => {
   // it("全部", () => {
   //   expect(sliceByGojuon(処理前)).toBe(処理済み)
   // })
-})
-
-describe("removeHokudai()*sort() のテスト", () => {
-  it("これは通る", () => {
-    const a = ["いがくぶ", "ふっとさる"]
-    const b = a.findIndex(
-      (item) => item[0].match(/[は-ほば-ぼぱ-ぽ]/u) !== null
-    )
-
-    expect(b).toStrictEqual(1)
-    expect(a.slice(0, b)).toStrictEqual(["いがくぶ"])
-  })
 })

@@ -2,6 +2,40 @@
 export const removeHokudai = (name: string) =>
   name.replace(/ほくだい|ほっかいどうだいがく/i, "")
 
+// 'ほくだい'または'ほっかいどうだいがく'を文字列から除く処理をすべての団体に施す
+export const removeHokudaiFromList = (items: ClubItem[]) =>
+  items.map((item) => {
+    return { ...item, yomi: removeHokudai(item.yomi) }
+  })
+
+// 五十音順にソート
+export const sort = (items: ClubItem[]) =>
+  items.sort((a, b) => a.yomi.localeCompare(b.yomi, "ja"))
+
+// ほくだいの除去+sort
+export const pretreatment = (items: ClubItem[]) => {
+  const hokudaiRemovedItems = removeHokudaiFromList(items)
+  const treatedItems = sort(hokudaiRemovedItems)
+
+  return treatedItems
+}
+
+// ◯行で始まる団体の最初のやつを探す
+export const findFirstClubOfGyou = (sortedItems: ClubItem[], regExp: RegExp) =>
+  sortedItems.findIndex((item) => item.yomi[0].match(regExp) !== null)
+
+// 渡されたリストを◯行だけの配列と○行以降の配列に分ける
+export const sliceByGyou = (items: ClubItem[], regExp: RegExp) => {
+  const firstItemOfGyou = findFirstClubOfGyou(items, regExp)
+  const sliceIndex = firstItemOfGyou === -1 ? 0 : firstItemOfGyou
+  const [gyou, afterGyou] = [
+    items.slice(0, sliceIndex + 1),
+    items.slice(sliceIndex + 1),
+  ]
+
+  return [gyou, afterGyou]
+}
+
 // あ行、か行...ごとのかたまりにする
 export type ClubItem = { name: string; yomi: string; path: string }
 export type Gojuon = (items: ClubItem[]) => {
@@ -17,103 +51,18 @@ export type Gojuon = (items: ClubItem[]) => {
   わをん: ClubItem[]
 }
 
-export const sort = (item: ClubItem[]) =>
-  item.sort((a, b) => a.yomi.localeCompare(b.yomi, "ja"))
-
 export const sliceByGojuon: Gojuon = (items) => {
-  const hokudaiRemovedItems = items.map((item) => {
-    return { ...item, yomi: removeHokudai(item.yomi) }
-  })
+  const treatedItems = pretreatment(items)
 
-  const sortedAndHokudaiRemovedItems = sort(hokudaiRemovedItems)
-
-  const あ行おわり = sortedAndHokudaiRemovedItems.findIndex(
-    (item) => item.yomi[0].match(/[か-こが-ご]/u) !== null
-  )
-  const か行始まり = あ行おわり === -1 ? 0 : あ行おわり
-  const [あ行, あ行以降] = [
-    sortedAndHokudaiRemovedItems.slice(0, か行始まり),
-    sortedAndHokudaiRemovedItems.slice(か行始まり),
-  ]
-
-  const か行おわり = sortedAndHokudaiRemovedItems.findIndex(
-    (item) => item.yomi[0].match(/[さ-そざ-ぞ]/u) !== null
-  )
-  const さ行始まり = か行おわり === -1 ? 0 : か行おわり
-  const [か行, か行以降] = [
-    あ行以降.slice(0, さ行始まり),
-    sortedAndHokudaiRemovedItems.slice(さ行始まり),
-  ]
-
-  const さ行おわり = sortedAndHokudaiRemovedItems.findIndex(
-    (item) => item.yomi[0].match(/[た-とだ-ど]/u) !== null
-  )
-  const た行始まり = さ行おわり === -1 ? 0 : さ行おわり
-
-  const [さ行, さ行以降] = [
-    か行以降.slice(0, た行始まり),
-    sortedAndHokudaiRemovedItems.slice(た行始まり),
-  ]
-
-  const た行おわり = sortedAndHokudaiRemovedItems.findIndex(
-    (item) => item.yomi[0].match(/[な-の]/u) !== null
-  )
-  const な行始まり = た行おわり === -1 ? 0 : た行おわり
-
-  const [た行, た行以降] = [
-    さ行以降.slice(0, な行始まり),
-    sortedAndHokudaiRemovedItems.slice(な行始まり),
-  ]
-
-  const な行おわり = sortedAndHokudaiRemovedItems.findIndex(
-    (item) => item.yomi[0].match(/[は-ほば-ぼぱ-ぽ]/u) !== null
-  )
-  const は行始まり = な行おわり === -1 ? 0 : な行おわり
-
-  const [な行, な行以降] = [
-    た行以降.slice(0, は行始まり),
-    sortedAndHokudaiRemovedItems.slice(は行始まり),
-  ]
-
-  const は行おわり = sortedAndHokudaiRemovedItems.findIndex(
-    (item) => item.yomi[0].match(/[ま-も]/u) !== null
-  )
-  const ま行始まり = は行おわり === -1 ? 0 : は行おわり
-
-  const [は行, は行以降] = [
-    な行以降.slice(0, ま行始まり),
-    sortedAndHokudaiRemovedItems.slice(ま行始まり),
-  ]
-
-  const ま行おわり = sortedAndHokudaiRemovedItems.findIndex(
-    (item) => item.yomi[0].match(/[や-よ]/u) !== null
-  )
-  const や行始まり = ま行おわり === -1 ? 0 : ま行おわり
-
-  const [ま行, ま行以降] = [
-    は行以降.slice(0, や行始まり),
-    sortedAndHokudaiRemovedItems.slice(や行始まり),
-  ]
-
-  const や行おわり = sortedAndHokudaiRemovedItems.findIndex(
-    (item) => item.yomi[0].match(/[ら-ろ]/u) !== null
-  )
-  const ら行始まり = や行おわり === -1 ? 0 : や行おわり
-
-  const [や行, や行以降] = [
-    ま行以降.slice(0, ら行始まり),
-    sortedAndHokudaiRemovedItems.slice(ら行始まり),
-  ]
-
-  const ら行おわり = sortedAndHokudaiRemovedItems.findIndex(
-    (item) => item.yomi[0].match(/[わ-ん]/u) !== null
-  )
-  const わ行始まり = ら行おわり === -1 ? 0 : ら行おわり
-
-  const [ら行, わをん] = [
-    や行以降.slice(0, わ行始まり),
-    sortedAndHokudaiRemovedItems.slice(わ行始まり),
-  ]
+  const [あ行, あ行以降] = sliceByGyou(treatedItems, /[か-こが-ご]/u)
+  const [か行, か行以降] = sliceByGyou(あ行以降, /[さ-そざ-ぞ]/u)
+  const [さ行, さ行以降] = sliceByGyou(か行以降, /[た-とだ-ど]/u)
+  const [た行, た行以降] = sliceByGyou(さ行以降, /[な-の]/u)
+  const [な行, な行以降] = sliceByGyou(た行以降, /[は-ほば-ぼぱ-ぽ]/u)
+  const [は行, は行以降] = sliceByGyou(な行以降, /[ま-も]/u)
+  const [ま行, ま行以降] = sliceByGyou(は行以降, /[や-よ]/u)
+  const [や行, や行以降] = sliceByGyou(ま行以降, /[ら-ろ]/u)
+  const [ら行, わをん] = sliceByGyou(や行以降, /[わ-ん]/u)
 
   return {
     あ行,
