@@ -1,3 +1,5 @@
+import { useMemo } from "react"
+
 import { 処理前 } from "@/utils/__test__/data"
 import { convertToSakuin } from "@/utils/sakuin"
 
@@ -9,7 +11,8 @@ import type { NextPageWithLayout } from "next"
 
 export const SakuinPage: NextPageWithLayout = () => {
   // TODO モックデータをきちんと用意する
-  const sakuin = convertToSakuin(処理前)
+  // TODO: 将来的にはgetStaticProps内でやる
+  const sakuin = useMemo(() => convertToSakuin(処理前), [])
 
   return (
     <>
