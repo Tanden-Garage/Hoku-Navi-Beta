@@ -34,6 +34,7 @@ export type Gojuon = (items: ClubItem[]) => {
   ら行: ClubItem[]
   わをん: ClubItem[]
 }
+export type Saluin = ReturnType<Gojuon>
 
 export const convertToSakuin: Gojuon = (items) => {
   const あ行: ClubItem[] = []
