@@ -49,7 +49,8 @@ export const SearchPageView: VFC<SearchPageProps> = ({
   }
 
   useEffect(() => {
-    handleScrollToTitle() // ページネーション押下時にページトップにスクロールさせるため
+    // ページネーション押下時にページトップにスクロールさせるため
+    if (currentPage !== 1) handleScrollToTitle()
   })
 
   return (
