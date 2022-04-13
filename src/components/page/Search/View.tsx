@@ -1,6 +1,6 @@
 import clsx from "clsx"
 import { useRouter } from "next/router"
-import { VFC } from "react"
+import { useEffect, useRef, VFC } from "react"
 
 import { Club } from "@/types/Club"
 
@@ -24,6 +24,7 @@ export const SearchPageView: VFC<SearchPageProps> = ({
   clubs,
 }) => {
   const router = useRouter()
+  const titleRef = useRef<HTMLHeadingElement>(null)
 
   const textLengthLimit = 9 // ページの見出しがレスポンシブ対応時に3行以内に収まるようするため
   const isLong = searchText.length > textLengthLimit
@@ -41,6 +42,16 @@ export const SearchPageView: VFC<SearchPageProps> = ({
     router.push(`/search?text=${searchText}&page=${currentPage + 1}`)
   }
 
+  function handleScrollToTitle() {
+    titleRef.current?.scrollIntoView({
+      behavior: "smooth",
+    })
+  }
+
+  useEffect(() => {
+    handleScrollToTitle() // ページネーション押下時にページトップにスクロールさせるため
+  })
+
   return (
     <main className="flex flex-col items-center p-4 min-h-screen">
       <div className="text-sm breadcrumbs">
@@ -53,7 +64,9 @@ export const SearchPageView: VFC<SearchPageProps> = ({
       </div>
 
       <div className="prose">
-        <h1>名前や紹介に「{serachTitle}」を含む部活・サークル一覧</h1>
+        <h1 ref={titleRef}>
+          名前や紹介に「{serachTitle}」を含む部活・サークル一覧
+        </h1>
       </div>
 
       <Spacer size={8} />
@@ -79,7 +92,9 @@ export const SearchPageView: VFC<SearchPageProps> = ({
             >
               «
             </button>
-            <button className="btn btn-primary">Page {currentPage}</button>
+            <button className="btn btn-primary" onClick={handleScrollToTitle}>
+              Page {currentPage}
+            </button>
             <button
               disabled={!hasNext}
               onClick={toNext}
