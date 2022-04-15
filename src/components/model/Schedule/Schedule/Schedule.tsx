@@ -14,7 +14,7 @@ export const ScheduleItem: VFC<Props> = ({ month, event }) => {
       <div className="absolute -top-2 left-5 prose-sm">
         <h3 className="text-md">{month}</h3>
       </div>
-      <div className="absolute top-8 w-full shadow-xl card bg-base-100">
+      <div className="absolute top-8 right-0 left-5 shadow-xl card bg-base-100">
         <div className="card-body">
           <p>{event}</p>
         </div>
@@ -25,7 +25,7 @@ export const ScheduleItem: VFC<Props> = ({ month, event }) => {
 
 export const Schedule: VFC<ScheduleProps> = ({ schedule }) => {
   return (
-    <div className="py-0  my-1 mr-0 ml-0.5 ">
+    <div className="">
       {Object.entries(schedule).map(
         ([month, event]) =>
           event !== "" && (
