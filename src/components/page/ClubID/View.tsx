@@ -3,9 +3,13 @@ import { MdOutlineContentCopy } from "react-icons/md"
 
 import { ClubProps } from "@/types/Club"
 
+import { Schedule } from "@/components/model/Schedule/Schedule"
+
 import { Anchor } from "@/components/ui/Anchor"
 import { Img } from "@/components/ui/Img"
 import { Spacer } from "@/components/ui/Spacer"
+
+import { mockSchedule } from "@/mocks/Schedule"
 
 import type { VFC } from "react"
 
@@ -313,6 +317,10 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
           <div className="prose">
             <h2>年間スケジュール</h2>
           </div>
+
+          <Spacer size={8} />
+
+          <Schedule schedule={mockSchedule} />
         </div>
       </div>
 
