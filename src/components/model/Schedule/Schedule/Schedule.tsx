@@ -14,10 +14,8 @@ export const ScheduleItem: VFC<Props> = ({ month, event }) => {
       <div className="absolute -top-2 left-5 prose-sm">
         <h3 className="text-md">{month}</h3>
       </div>
-      <div className="absolute top-8 right-0 left-5 shadow-xl card bg-base-100">
-        <div className="card-body">
-          <p>{event}</p>
-        </div>
+      <div className="flex absolute top-8 right-0 left-5 items-center p-8 rounded-xl shadow-2xl bg-base-100">
+        <p>{event}</p>
       </div>
     </div>
   )
