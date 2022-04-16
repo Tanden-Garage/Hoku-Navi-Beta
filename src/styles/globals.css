@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* proseをあてなくともh1タグがスタイリングされてほしいので実装 */
+@layer base {
+  h1 {
+    @apply font-extrabold text-4xl;
+  }
+}
