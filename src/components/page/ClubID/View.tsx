@@ -3,6 +3,8 @@ import { MdOutlineContentCopy } from "react-icons/md"
 
 import { ClubProps } from "@/types/Club"
 
+import { dayFormatter } from "@/utils/dayFormatter"
+
 import { Schedule } from "@/components/model/Schedule/Schedule"
 
 import { Anchor } from "@/components/ui/Anchor"
@@ -43,14 +45,9 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
 
   const imgSrc = `https://hubcnavi.net/storage/orgs/${id}/large.png`
 
-  const updateDayGetter = (lastUpdateAt: Date) => {
-    const year = lastUpdateAt.getFullYear()
-    const month = lastUpdateAt.getMonth() + 1
-    const day = lastUpdateAt.getDate()
+  const UpdateDay = dayFormatter(lastUpdateAt)
 
-    return `${year}/${month}/${day}`
-  }
-  const UpdateDay = updateDayGetter(lastUpdateAt)
+  const statData = (n: number | null) => (n !== null ? n : "？")
 
   return (
     <main>
@@ -97,75 +94,69 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
 
           <Spacer size={4} />
 
-          {/* TODO: statが1つのとき、デスクトップ版だとstatが広がりすぎるのを直したい */}
-          <div className="w-full shadow stats-vertical stats lg:stats-horizontal">
-            {establishedYear !== null && (
-              <div className="stat">
-                <div className="stat-figure text-secondary">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    className="inline-block w-8 h-8 stroke-current"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    ></path>
-                  </svg>
-                </div>
-                <div className="stat-title">設立年</div>
-                {/* <div className="stat-value">{establishedYear}</div> */}
-                <div className="stat-value">{establishedYear}年</div>
-                <div className="stat-desc">Jan 1st - Feb 1st</div>
+          <div className="w-full shadow stats stats-vertical md:stats-horizontal">
+            <div className="stat">
+              <div className="stat-figure text-secondary">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  className="inline-block w-8 h-8 stroke-current"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
               </div>
-            )}
-            {size !== null && (
-              <div className="stat">
-                <div className="stat-figure text-secondary">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    className="inline-block w-8 h-8 stroke-current"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-                    ></path>
-                  </svg>
-                </div>
-                <div className="stat-title">人数</div>
-                <div className="stat-value">{size}人</div>
-                <div className="stat-desc">↗︎ 400 (22%)</div>
+              <div className="stat-title">設立年</div>
+              <div className="stat-value">{statData(establishedYear)}年</div>
+              <div className="stat-desc">Jan 1st - Feb 1st</div>
+            </div>
+
+            <div className="stat">
+              <div className="stat-figure text-secondary">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  className="inline-block w-8 h-8 stroke-current"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                  ></path>
+                </svg>
               </div>
-            )}
-            {fee !== null && (
-              <div className="stat">
-                <div className="stat-figure text-secondary">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    className="inline-block w-8 h-8 stroke-current"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
-                    ></path>
-                  </svg>
-                </div>
-                <div className="stat-title">費用</div>
-                <div className="stat-value">{fee}円</div>
-                <div className="stat-desc">↘︎ 90 (14%)</div>
+              <div className="stat-title">人数</div>
+              <div className="stat-value">{statData(size)}人</div>
+              <div className="stat-desc">↗︎ 400 (22%)</div>
+            </div>
+
+            <div className="stat">
+              <div className="stat-figure text-secondary">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  className="inline-block w-8 h-8 stroke-current"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
+                  ></path>
+                </svg>
               </div>
-            )}
+              <div className="stat-title">費用</div>
+              <div className="stat-value">{statData(fee)}円</div>
+              <div className="stat-desc">↘︎ 90 (14%)</div>
+            </div>
           </div>
 
           <Spacer size={4} />
