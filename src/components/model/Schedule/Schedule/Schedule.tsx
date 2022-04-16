@@ -26,11 +26,7 @@ export const Schedule: VFC<ScheduleProps> = ({ schedule }) => {
     <div className="border-l-2  border-secondary">
       {Object.entries(schedule).map(
         ([month, event]) =>
-          event !== "" && (
-            <>
-              <ScheduleItem month={month} event={event} />
-            </>
-          )
+          event !== "" && <ScheduleItem month={month} event={event} />
       )}
     </div>
   )
