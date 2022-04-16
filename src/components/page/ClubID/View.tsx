@@ -1,5 +1,11 @@
-import { BsLine, BsTwitter, BsFacebook } from "react-icons/bs"
-import { MdOutlineContentCopy } from "react-icons/md"
+import {
+  FacebookIcon,
+  FacebookShareButton,
+  LineIcon,
+  LineShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+} from "react-share"
 
 import { ClubProps } from "@/types/Club"
 
@@ -319,18 +325,29 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
 
       {/* TODO: デスクトップ版のシェアボタン表示 */}
       <div className="flex fixed bottom-4 justify-evenly w-full lg:hidden">
-        <button className="btn btn-ghost">
-          <MdOutlineContentCopy size={32} />
-        </button>
-        <button className="btn btn-ghost">
-          <BsTwitter size={32} />
-        </button>
-        <button className="btn btn-ghost">
-          <BsFacebook size={32} />
-        </button>
-        <button className="btn btn-ghost">
-          <BsLine size={32} />
-        </button>
+        <TwitterShareButton
+          url={`https://hubcnavi.net/${id}`}
+          hashtags={[`${name}`, `北大部活サークルnavi`]}
+          title={`${name} | 北大部活サークルnavi`}
+          via="hubcnavi"
+        >
+          <TwitterIcon round size={40} />
+        </TwitterShareButton>
+
+        <LineShareButton
+          url={`https://hubcnavi.net/${id}`}
+          title={`${name} | 北大部活サークルnavi`}
+        >
+          <LineIcon round size={40} />
+        </LineShareButton>
+
+        <FacebookShareButton
+          url={`https://hubcnavi.net/${id}`}
+          hashtag={`#${name}`}
+          quote={"この団体キニナル！"}
+        >
+          <FacebookIcon round size={40} />
+        </FacebookShareButton>
       </div>
     </main>
   )
