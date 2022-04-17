@@ -30,9 +30,7 @@ export const AthleticTagPageView: VFC<Props> = ({ tagName, clubs }) => {
         </ul>
       </div>
 
-      <div className="prose">
-        <h1>{tagName}の部活・サークル一覧</h1>
-      </div>
+      <h1>{tagName}の部活・サークル一覧</h1>
 
       <Spacer size={12} />
 
@@ -44,9 +42,7 @@ export const AthleticTagPageView: VFC<Props> = ({ tagName, clubs }) => {
 
       <Spacer size={12} />
 
-      <div className="prose">
-        <h2>他の運動系も探す</h2>
-      </div>
+      <h2>他の運動系も探す</h2>
 
       <Spacer size={8} />
 
@@ -54,9 +50,7 @@ export const AthleticTagPageView: VFC<Props> = ({ tagName, clubs }) => {
 
       <Spacer size={12} />
 
-      <div className="prose">
-        <h2>文化系も探してみる</h2>
-      </div>
+      <h2>文化系も探してみる</h2>
 
       <Spacer size={8} />
 

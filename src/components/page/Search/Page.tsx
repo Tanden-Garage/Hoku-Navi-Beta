@@ -25,7 +25,7 @@ export const SearchPage: NextPageWithLayout = () => {
 
       {!text ? (
         // router.queryからsearchTextを取得するのに少しラグがあるようなので
-        <div className="flex flex-col items-center p-4 h-screen text-center prose">
+        <div className="flex flex-col items-center p-4 h-screen text-center">
           <h1>Loading...</h1>
         </div>
       ) : (
