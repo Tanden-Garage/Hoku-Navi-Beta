@@ -9,7 +9,7 @@ import {
 
 import { ClubProps } from "@/types/Club"
 
-import { dayFormatter } from "@/utils/dayFormatter"
+import { dateFormatter } from "@/utils/dayFormatter"
 
 import { Schedule } from "@/components/model/Schedule/Schedule"
 
@@ -51,7 +51,7 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
 
   const imgSrc = `https://hubcnavi.net/storage/orgs/${id}/large.png`
 
-  const UpdateDay = dayFormatter(lastUpdateAt)
+  const updateDay = dateFormatter(lastUpdateAt)
 
   const statData = (n: number | null) => (n !== null ? n : "？")
 
@@ -75,7 +75,7 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
           {/*TODO: 公認のブール値から表示できるようにする */}
           <div className="badge badge-primary badge-lg">医学部公認</div>{" "}
           <div className="prose">
-            <p>最終更新日：{UpdateDay}</p>
+            <p>最終更新日：{updateDay}</p>
           </div>
         </div>
 
