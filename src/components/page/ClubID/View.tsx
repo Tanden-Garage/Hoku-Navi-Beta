@@ -58,7 +58,7 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
   return (
     <main>
       <div className="flex flex-col justify-center items-center px-0 w-full lg:px-80">
-        <Spacer size={12} />
+        <Spacer size={12} className="hidden lg:block" />
 
         <Img
           width={1000}
