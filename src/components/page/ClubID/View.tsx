@@ -17,8 +17,6 @@ import { Anchor } from "@/components/ui/Anchor"
 import { Img } from "@/components/ui/Img"
 import { Spacer } from "@/components/ui/Spacer"
 
-import { mockSchedule } from "@/mocks/Schedule"
-
 import type { VFC } from "react"
 
 export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
@@ -317,7 +315,11 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
 
           <Spacer size={8} />
 
-          <Schedule schedule={mockSchedule} />
+          <Schedule schedule={schedule} />
+
+          <Spacer size={8} />
+
+          <p className="whitespace-pre-wrap">{info}</p>
         </div>
       </div>
 
