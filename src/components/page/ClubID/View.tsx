@@ -307,32 +307,38 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
 
       <Spacer size={8} />
 
-      {/* TODO: デスクトップ版のシェアボタン表示 */}
-      <div className="flex fixed bottom-4 justify-evenly w-full md:hidden">
-        <TwitterShareButton
-          url={`https://hubcnavi.net/${id}`}
-          hashtags={[`${name}`, `北大部活サークルnavi`]}
-          title={`${name} | 北大部活サークルnavi`}
-          via="hubcnavi"
-        >
-          <TwitterIcon round size={40} />
-        </TwitterShareButton>
+      <div className="divider" />
 
-        <LineShareButton
-          url={`https://hubcnavi.net/${id}`}
-          title={`${name} | 北大部活サークルnavi`}
-        >
-          <LineIcon round size={40} />
-        </LineShareButton>
+      <div className="flex fixed bottom-0 flex-col gap-2 items-center w-full bg-white/80  md:relative">
+        <p className="md:pb-4">Share now!</p>
+        <div className="flex justify-evenly pb-4 w-full">
+          <TwitterShareButton
+            url={`https://hubcnavi.net/${id}`}
+            hashtags={[`${name}`, `北大部活サークルnavi`]}
+            title={`${name} | 北大部活サークルnavi`}
+            via="hubcnavi"
+          >
+            <TwitterIcon round size={40} />
+          </TwitterShareButton>
 
-        <FacebookShareButton
-          url={`https://hubcnavi.net/${id}`}
-          hashtag={`#${name}`}
-          quote={"この団体キニナル！"}
-        >
-          <FacebookIcon round size={40} />
-        </FacebookShareButton>
+          <LineShareButton
+            url={`https://hubcnavi.net/${id}`}
+            title={`${name} | 北大部活サークルnavi`}
+          >
+            <LineIcon round size={40} />
+          </LineShareButton>
+
+          <FacebookShareButton
+            url={`https://hubcnavi.net/${id}`}
+            hashtag={`#${name}`}
+            quote={"この団体キニナル！"}
+          >
+            <FacebookIcon round size={40} />
+          </FacebookShareButton>
+        </div>
       </div>
+
+      <Spacer size={8} />
     </main>
   )
 }
