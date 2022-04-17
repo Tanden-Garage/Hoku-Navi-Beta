@@ -3,8 +3,9 @@ import {
   AiOutlineInfoCircle,
   AiOutlineMail,
 } from "react-icons/ai"
-import { BsFacebook, BsInstagram } from "react-icons/bs"
-import { FaLine } from "react-icons/fa"
+import { BsFacebook, BsInstagram, BsPeopleFill } from "react-icons/bs"
+import { FaHistory, FaLine } from "react-icons/fa"
+import { GiTakeMyMoney } from "react-icons/gi"
 import {
   FacebookIcon,
   FacebookShareButton,
@@ -134,19 +135,7 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
           <div className="w-full shadow stats stats-vertical md:stats-horizontal">
             <div className="stat">
               <div className="stat-figure text-secondary">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  className="inline-block w-8 h-8 stroke-current"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  ></path>
-                </svg>
+                <FaHistory size={28} />
               </div>
               <div className="stat-title">設立年</div>
               <div className="stat-value">{statData(establishedYear)}年</div>
@@ -155,19 +144,7 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
 
             <div className="stat">
               <div className="stat-figure text-secondary">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  className="inline-block w-8 h-8 stroke-current"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-                  ></path>
-                </svg>
+                <BsPeopleFill size={28} />
               </div>
               <div className="stat-title">人数</div>
               <div className="stat-value">{statData(size)}人</div>
@@ -176,19 +153,7 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
 
             <div className="stat">
               <div className="stat-figure text-secondary">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  className="inline-block w-8 h-8 stroke-current"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
-                  ></path>
-                </svg>
+                <GiTakeMyMoney size={32} />
               </div>
               <div className="stat-title">費用</div>
               <div className="stat-value">{statData(fee)}円</div>
