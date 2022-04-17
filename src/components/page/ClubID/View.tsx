@@ -88,7 +88,7 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
 
           <Spacer size={12} />
 
-          <p>{introduction}</p>
+          <p className="whitespace-pre-wrap">{introduction}</p>
         </div>
 
         <Spacer size={8} />
