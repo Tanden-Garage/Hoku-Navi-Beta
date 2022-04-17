@@ -1,3 +1,6 @@
+import { AiFillTwitterCircle, AiOutlineMail } from "react-icons/ai"
+import { BsFacebook, BsInstagram } from "react-icons/bs"
+import { FaLine } from "react-icons/fa"
 import {
   FacebookIcon,
   FacebookShareButton,
@@ -71,6 +74,13 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
     info,
     ...props
   } = club
+
+  const hasSiteUrl = Boolean(siteUrl)
+  const hasMail = Boolean(mail)
+  const hasLine = Boolean(line)
+  const hasTwitter = Boolean(twitter)
+  const hasFacebook = Boolean(facebook)
+  const hasInstagram = Boolean(instagram)
 
   const imgSrc = `https://hubcnavi.net/storage/orgs/${id}/large.png`
 
@@ -213,82 +223,59 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
 
         <h2 className="py-8 pb-6">各種リンク</h2>
 
-        <ul className="p-2 w-full shadow menu bg-base-100 rounded-box menu-vertical md:menu-horizontal">
-          {twitter !== null && (
-            <li className="grow">
+        <ul className="flex-wrap justify-between py-2 w-full shadow menu bg-base-100 rounded-box menu-vertical sm:menu-horizontal">
+          {hasMail && (
+            <li className="w-56">
+              <Anchor href={mail ?? ""} className="w-full" type="mail">
+                <AiOutlineMail />
+                {mail}
+              </Anchor>
+            </li>
+          )}
+          {hasLine && (
+            <li className="w-56">
+              <Anchor href={line ?? ""} className="w-full" type="mail">
+                <FaLine />
+                公式LINE
+              </Anchor>
+            </li>
+          )}
+          {hasTwitter && (
+            <li className="w-56">
               <Anchor
                 href={`https://twitter.com/${twitter}`}
                 className="w-full"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-5 h-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  />
-                </svg>
+                <AiFillTwitterCircle />
                 Twitter
               </Anchor>
             </li>
           )}
-          {facebook !== null && (
-            <li className="grow">
+          {hasFacebook && (
+            <li className="w-56">
               <Anchor
                 href={`https://facebook.com/${facebook}`}
                 className="w-full"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-5 h-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  />
-                </svg>
+                <BsFacebook />
                 facebook
               </Anchor>
             </li>
           )}
-          {instagram !== null && (
-            <li className="w-grow">
+          {hasInstagram && (
+            <li className="w-56">
               <Anchor
                 href={`https://www.instagram.com//${instagram}`}
                 className="w-full"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-5 h-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  />
-                </svg>
+                <BsInstagram />
                 Instagram
               </Anchor>
             </li>
           )}
-          {siteUrl !== null && (
-            <li className="grow">
-              <Anchor href={siteUrl} className="w-full">
+          {hasSiteUrl && (
+            <li className="w-56">
+              <Anchor href={siteUrl ?? ""} className="w-full">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-5 h-5"
