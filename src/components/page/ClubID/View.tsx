@@ -79,19 +79,19 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
   const statData = (n: number | null) => (n !== null ? n : "？")
 
   return (
-    <main>
-      <div className="flex flex-col justify-center items-center px-0 w-full lg:px-80">
-        <Spacer size={12} className="hidden lg:block" />
+    <main className="flex flex-col items-center mx-auto max-w-3xl">
+      <Spacer size={12} className="hidden md:block" />
 
-        <Img
-          width={1000}
-          height={500}
-          objectFit="cover"
-          src={imgSrc}
-          alt={name}
-          className="rounded-none lg:rounded-lg"
-        />
+      <Img
+        width={1000}
+        height={500}
+        objectFit="cover"
+        src={imgSrc}
+        alt={name}
+        className="rounded-none md:rounded-lg"
+      />
 
+      <div className="flex flex-col justify-center p-4 w-full ">
         <div className="flex justify-between items-center px-4 pt-4 w-full">
           <Badges {...props} />
 
@@ -102,27 +102,13 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
           </p>
         </div>
 
-        <Spacer size={12} />
+        <h1 className="py-2">{name}</h1>
 
-        <div className="p-4 w-full lg:px-0">
-          <div className="prose">
-            <h1>{name}</h1>
-          </div>
+        <p className="whitespace-pre-wrap">{introduction}</p>
 
-          <Spacer size={12} />
+        <h2 className="py-8 pb-6">きほん情報</h2>
 
-          <p className="whitespace-pre-wrap">{introduction}</p>
-        </div>
-
-        <Spacer size={8} />
-
-        <div className="p-4 w-full lg:px-0">
-          <div className="prose">
-            <h2>きほん情報</h2>
-          </div>
-
-          <Spacer size={4} />
-
+        <div>
           <div className="w-full shadow stats stats-vertical md:stats-horizontal">
             <div className="stat">
               <div className="stat-figure text-secondary">
@@ -187,171 +173,155 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
               <div className="stat-desc">↘︎ 90 (14%)</div>
             </div>
           </div>
+        </div>
 
-          <Spacer size={4} />
+        <Spacer size={4} />
 
-          <div
-            tabIndex={0}
-            className=" shadow collapse-open collapse  bg-base-100 rounded-box"
-          >
-            <div className="text-xl font-medium collapse-title">活動頻度</div>
-            <div className="collapse-content">
-              <p>{activityFrequency}</p>
-            </div>
-          </div>
-
-          <Spacer size={4} />
-
-          <div
-            tabIndex={0}
-            className="shadow collapse-open collapse  bg-base-100 rounded-box"
-          >
-            <div className="text-xl font-medium collapse-title">活動場所</div>
-            <div className="collapse-content">
-              <p>{activityBase}</p>
-            </div>
-          </div>
-
-          <Spacer size={4} />
-
-          <div
-            tabIndex={0}
-            className="shadow collapse-open collapse bg-base-100 rounded-box"
-          >
-            <div className="text-xl font-medium collapse-title">入部条件</div>
-            <div className="collapse-content">
-              <p>{conditionOfAdmission}</p>
-            </div>
+        <div
+          tabIndex={0}
+          className=" shadow collapse-open collapse  bg-base-100 rounded-box"
+        >
+          <div className="text-xl font-medium collapse-title">活動頻度</div>
+          <div className="collapse-content">
+            <p>{activityFrequency}</p>
           </div>
         </div>
+
+        <Spacer size={4} />
+
+        <div
+          tabIndex={0}
+          className="shadow collapse-open collapse  bg-base-100 rounded-box"
+        >
+          <div className="text-xl font-medium collapse-title">活動場所</div>
+          <div className="collapse-content">
+            <p>{activityBase}</p>
+          </div>
+        </div>
+
+        <Spacer size={4} />
+
+        <div
+          tabIndex={0}
+          className="shadow collapse-open collapse bg-base-100 rounded-box"
+        >
+          <div className="text-xl font-medium collapse-title">入部条件</div>
+          <div className="collapse-content">
+            <p>{conditionOfAdmission}</p>
+          </div>
+        </div>
+
+        <h2 className="py-8 pb-6">各種リンク</h2>
+
+        <ul className="p-2 w-full shadow menu bg-base-100 rounded-box menu-vertical md:menu-horizontal">
+          {twitter !== null && (
+            <li className="grow">
+              <Anchor
+                href={`https://twitter.com/${twitter}`}
+                className="w-full"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  />
+                </svg>
+                Twitter
+              </Anchor>
+            </li>
+          )}
+          {facebook !== null && (
+            <li className="grow">
+              <Anchor
+                href={`https://facebook.com/${facebook}`}
+                className="w-full"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  />
+                </svg>
+                facebook
+              </Anchor>
+            </li>
+          )}
+          {instagram !== null && (
+            <li className="w-grow">
+              <Anchor
+                href={`https://www.instagram.com//${instagram}`}
+                className="w-full"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  />
+                </svg>
+                Instagram
+              </Anchor>
+            </li>
+          )}
+          {siteUrl !== null && (
+            <li className="grow">
+              <Anchor href={siteUrl} className="w-full">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  />
+                </svg>
+                ホームページ
+              </Anchor>
+            </li>
+          )}
+        </ul>
+
+        <h2 className="py-8 pb-6">年間スケジュール</h2>
+
+        <Schedule schedule={schedule} />
 
         <Spacer size={8} />
 
-        <div className="p-4 w-full lg:px-0">
-          <div className="prose">
-            <h2>各種リンク</h2>
-          </div>
-
-          <Spacer size={4} />
-
-          <ul className="p-2 w-full shadow menu bg-base-100 rounded-box menu-vertical lg:menu-horizontal">
-            {twitter !== null && (
-              <li className="grow">
-                <Anchor
-                  href={`https://twitter.com/${twitter}`}
-                  className="w-full"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                    />
-                  </svg>
-                  Twitter
-                </Anchor>
-              </li>
-            )}
-            {facebook !== null && (
-              <li className="grow">
-                <Anchor
-                  href={`https://facebook.com/${facebook}`}
-                  className="w-full"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                    />
-                  </svg>
-                  facebook
-                </Anchor>
-              </li>
-            )}
-            {instagram !== null && (
-              <li className="w-grow">
-                <Anchor
-                  href={`https://www.instagram.com//${instagram}`}
-                  className="w-full"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                    />
-                  </svg>
-                  Instagram
-                </Anchor>
-              </li>
-            )}
-            {siteUrl !== null && (
-              <li className="grow">
-                <Anchor href={siteUrl} className="w-full">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                    />
-                  </svg>
-                  ホームページ
-                </Anchor>
-              </li>
-            )}
-          </ul>
-        </div>
-
-        <Spacer size={8} />
-
-        <div className="p-4 w-full lg:px-0">
-          <div className="prose">
-            <h2>年間スケジュール</h2>
-          </div>
-
-          <Spacer size={8} />
-
-          <Schedule schedule={schedule} />
-
-          <Spacer size={8} />
-
-          <p className="whitespace-pre-wrap">{info}</p>
-        </div>
+        <p className="whitespace-pre-wrap">{info}</p>
       </div>
 
       <Spacer size={8} />
 
       {/* TODO: デスクトップ版のシェアボタン表示 */}
-      <div className="flex fixed bottom-4 justify-evenly w-full lg:hidden">
+      <div className="flex fixed bottom-4 justify-evenly w-full md:hidden">
         <TwitterShareButton
           url={`https://hubcnavi.net/${id}`}
           hashtags={[`${name}`, `北大部活サークルnavi`]}
