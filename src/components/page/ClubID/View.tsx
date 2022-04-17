@@ -1,4 +1,8 @@
-import { AiFillTwitterCircle, AiOutlineMail } from "react-icons/ai"
+import {
+  AiFillTwitterCircle,
+  AiOutlineInfoCircle,
+  AiOutlineMail,
+} from "react-icons/ai"
 import { BsFacebook, BsInstagram } from "react-icons/bs"
 import { FaLine } from "react-icons/fa"
 import {
@@ -116,7 +120,15 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
 
         <p className="whitespace-pre-wrap">{introduction}</p>
 
-        <h2 className="py-8 pb-6">きほん情報</h2>
+        <h2 className="py-8 pb-6">
+          きほん情報
+          <span
+            className="align-text-bottom tooltip tooltip-bottom tooltip-info md:tooltip-right"
+            data-tip="？になっているのは未公開のデータです"
+          >
+            <AiOutlineInfoCircle className="text-info" />
+          </span>
+        </h2>
 
         <div>
           <div className="w-full shadow stats stats-vertical md:stats-horizontal">
