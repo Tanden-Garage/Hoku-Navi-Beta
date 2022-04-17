@@ -52,9 +52,7 @@ export const TopPageView: VFC = () => {
 const AthView: VFC = () => {
   return (
     <div>
-      <div className="prose">
-        <h2>人気の運動系タグ</h2>
-      </div>
+      <h2>人気の運動系タグ</h2>
 
       <Spacer size={8} />
 
@@ -66,9 +64,7 @@ const AthView: VFC = () => {
 const CulView: VFC = () => {
   return (
     <div>
-      <div className="pl-8 prose">
-        <h2>人気の文化系タグ</h2>
-      </div>
+      <h2>人気の文化系タグ</h2>
 
       <Spacer size={4} />
 

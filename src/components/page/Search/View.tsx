@@ -113,7 +113,7 @@ export const SearchPageView: VFC<SearchPageProps> = ({
 }
 
 const NoResultScreen: VFC = () => (
-  <div className="text-center prose">
+  <div className="text-center">
     <h1>Sorry!</h1>
     <p>お探しの団体は見つかりませんでした😭</p>
     <p>別の検索ワードを試してみてくださいね🔍</p>
