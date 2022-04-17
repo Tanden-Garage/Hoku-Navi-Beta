@@ -24,7 +24,6 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
     id,
     name,
     lastUpdateAt,
-    path,
     introduction,
     isCertificatedByUni,
     isCertificatedByMed,
