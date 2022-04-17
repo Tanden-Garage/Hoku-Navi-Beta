@@ -9,9 +9,7 @@ import type { VFC } from "react"
 export const AthleticPageView: VFC = () => {
   return (
     <main className="flex flex-col justify-center items-center  p-8 ">
-      <div className="text-center prose">
-        <h1>運動系のすべてのタグ一覧</h1>
-      </div>
+      <h1>運動系のすべてのタグ一覧</h1>
 
       <Spacer size={12} />
 

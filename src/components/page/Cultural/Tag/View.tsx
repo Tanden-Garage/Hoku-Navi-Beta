@@ -30,9 +30,7 @@ export const CulturalTagPageView: VFC<Props> = ({ tagName, clubs }) => {
         </ul>
       </div>
 
-      <div className="prose">
-        <h1>{tagName}の部活・サークル一覧</h1>
-      </div>
+      <h1>{tagName}の部活・サークル一覧</h1>
 
       <Spacer size={12} />
 
@@ -44,9 +42,7 @@ export const CulturalTagPageView: VFC<Props> = ({ tagName, clubs }) => {
 
       <Spacer size={12} />
 
-      <div className="prose">
-        <h2>他の文化系も探す</h2>
-      </div>
+      <h2>他の文化系も探す</h2>
 
       <Spacer size={8} />
 
@@ -54,9 +50,7 @@ export const CulturalTagPageView: VFC<Props> = ({ tagName, clubs }) => {
 
       <Spacer size={12} />
 
-      <div className="prose">
-        <h2>運動系も探してみる</h2>
-      </div>
+      <h2>運動系も探してみる</h2>
 
       <Spacer size={8} />
 
