@@ -61,9 +61,7 @@ export const ContactPageView: VFC = () => {
     <main className="flex flex-col justify-center items-center p-8  w-full">
       <Spacer size={4} />
 
-      <div className="text-center prose">
-        <h1>お問い合わせ</h1>
-      </div>
+      <h1>お問い合わせ</h1>
 
       <Spacer size={8} />
 
@@ -114,9 +112,7 @@ export const ContactPageView: VFC = () => {
           className="flex absolute top-0 left-0 justify-center items-center p-4 w-full h-screen bg-slate-100/70"
         >
           <div className="flex flex-col justify-center items-center p-4 w-full max-w-2xl h-1/2 bg-white rounded-xl">
-            <div className="prose">
-              <h2 className="">ありがとうございます！</h2>
-            </div>
+            <h2 className="">ありがとうございます！</h2>
 
             <Spacer size={8} />
 
