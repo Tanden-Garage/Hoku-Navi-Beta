@@ -2,6 +2,8 @@ import { VFC } from "react"
 
 import { ScheduleProps } from "@/types/Schedule"
 
+import { Spacer } from "@/components/ui/Spacer"
+
 interface Props {
   month: string
   event: string
@@ -9,14 +11,16 @@ interface Props {
 
 export const ScheduleItem: VFC<Props> = ({ month, event }) => {
   return (
-    <section className="relative pl-5 h-36">
-      <div className="inline-flex absolute  top-0 -left-1.5 w-2.5 h-2.5 rounded-full  border-2 border-primary  bg-primary" />
-      <div className="absolute -top-2 left-5 prose-sm">
-        <h3 className="text-md">{month}</h3>
+    <section className="relative pl-5">
+      <div className="inline-flex absolute top-2.5 -left-1.5 w-2.5 h-2.5 rounded-full  border-2 border-primary  bg-primary" />
+      <div className="left-5 prose">
+        <h3 className="pb-2">{month}</h3>
       </div>
-      <div className="flex absolute top-8 right-0 left-5 items-center p-8 rounded-xl shadow-2xl bg-base-100">
+      <div className="flex items-center p-8 rounded-xl shadow bg-base-100">
         <p>{event}</p>
       </div>
+
+      <Spacer size={8} />
     </section>
   )
 }
