@@ -19,17 +19,42 @@ import { Spacer } from "@/components/ui/Spacer"
 
 import type { VFC } from "react"
 
+interface BadgeProps {
+  isCertificatedByUni: boolean
+  isCertificatedByMed: boolean
+  isCertificatedByDen: boolean
+  isCertificatedByEng: boolean
+  isCertificatedByLaw: boolean
+}
+
+const Badges: VFC<BadgeProps> = (props) => {
+  return (
+    <div className="flex gap-2 max-w-sm">
+      {props.isCertificatedByUni && (
+        <div className="badge badge-primary badge-lg">全学公認</div>
+      )}
+      {props.isCertificatedByMed && (
+        <div className="badge badge-primary badge-lg">医学部公認</div>
+      )}
+      {props.isCertificatedByDen && (
+        <div className="badge badge-primary badge-lg">歯学部公認</div>
+      )}
+      {props.isCertificatedByEng && (
+        <div className="badge badge-primary badge-lg">工学部公認</div>
+      )}
+      {props.isCertificatedByLaw && (
+        <div className="badge badge-primary badge-lg">法学部公認</div>
+      )}
+    </div>
+  )
+}
+
 export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
   const {
     id,
     name,
     lastUpdateAt,
     introduction,
-    isCertificatedByUni,
-    isCertificatedByMed,
-    isCertificatedByDen,
-    isCertificatedByEng,
-    isCertificatedByLaw,
     size,
     establishedYear,
     activityBase,
@@ -44,6 +69,7 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
     instagram,
     schedule,
     info,
+    ...props
   } = club
 
   const imgSrc = `https://hubcnavi.net/storage/orgs/${id}/large.png`
@@ -66,14 +92,14 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
           className="rounded-none lg:rounded-lg"
         />
 
-        <Spacer size={12} />
+        <div className="flex justify-between items-center px-4 pt-4 w-full">
+          <Badges {...props} />
 
-        <div className="flex justify-between px-4 w-full">
-          {/*TODO: 公認のブール値から表示できるようにする */}
-          <div className="badge badge-primary badge-lg">医学部公認</div>{" "}
-          <div className="prose">
-            <p>最終更新日：{updateDay}</p>
-          </div>
+          <p className="text-center">
+            最終更新
+            <br />
+            {updateDay}
+          </p>
         </div>
 
         <Spacer size={12} />
