@@ -155,7 +155,7 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
               <div className="stat-figure text-secondary">
                 <GiTakeMyMoney size={32} />
               </div>
-              <div className="stat-title">費用</div>
+              <div className="stat-title">年間費用</div>
               <div className="stat-value">{statData(fee)}円</div>
               <div className="stat-desc">↘︎ 90 (14%)</div>
             </div>
