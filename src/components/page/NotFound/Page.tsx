@@ -14,7 +14,7 @@ export const NotFoundPage: NextPageWithLayout = () => {
   return (
     <>
       <MySEO
-        path=""
+        path={path}
         title="Not found..."
         description="Sorry!お探しのページは見つかりませんでした。"
       />
