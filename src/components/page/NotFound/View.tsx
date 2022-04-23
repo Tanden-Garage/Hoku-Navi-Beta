@@ -43,7 +43,7 @@ export const NotFoundPageView: VFC<NotFoundPageProps> = ({ path }) => {
           data-prefix="5"
           className="block w-full bg-warning text-warning-content"
         >
-          <code>404 warning! Page not found.</code>
+          <code>404 Error! Page not found.</code>
         </pre>
       </section>
 
