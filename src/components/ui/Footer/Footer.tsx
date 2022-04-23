@@ -17,7 +17,7 @@ const ABOUT_ITEMS = [
 
 const LEGAL_ITEMS = [
   { label: "利用規約", href: "/terms" },
-  { label: "プライバシーポリシー", href: "/privacy" },
+  { label: "プライバシーポリシー", href: "/privacy-policy" },
 ]
 
 export const Footer: VFC = () => {
