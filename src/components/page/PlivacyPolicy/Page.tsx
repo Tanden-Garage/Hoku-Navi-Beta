@@ -8,9 +8,9 @@ export const PlivacyPolicyPage: NextPageWithLayout = () => {
   return (
     <>
       <MySEO
-        path=""
-        title="plivacy policy"
-        description="Write page description here."
+        path="/privacy-policy"
+        title="プライバシーポリシー"
+        description="当サイトは、ご利用いただくお客様のプライバシーをお守りいたします。"
       />
 
       <PlivacyPolicyPageView />
