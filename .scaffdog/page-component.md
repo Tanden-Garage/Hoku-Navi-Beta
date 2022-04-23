@@ -12,11 +12,6 @@ questions:
 ```ts
 import { {{ inputs.name | pascal }}Page } from "./Page"
 
-import { Layout } from "@/components/layout"
-
-{{ inputs.name | pascal }}Page.getLayout = (page) => <Layout>{page}</Layout>
-
-
 export default {{ inputs.name | pascal }}Page
 ```
 
@@ -24,7 +19,6 @@ export default {{ inputs.name | pascal }}Page
 
 ```tsx
 import { MySEO } from "@/components/functional/SEO"
-
 
 import { {{ inputs.name | pascal }}PageView } from "./View"
 
@@ -57,6 +51,7 @@ export const {{ inputs.name | pascal }}PageView: VFC = () => {
     </main>
   )
 }
+
 ```
 
 # `src/components/page/{{ inputs.name | pascal }}/{{ inputs.name | pascal }}.stories.tsx`
@@ -71,7 +66,7 @@ import { {{ inputs.name | pascal }}PageView } from "./View"
 export default {
   title: "Page/{{ inputs.name | pascal }}",
   component: {{ inputs.name | pascal }}PageView,
-} as ComponentMeta<typeof {{ inputs.name | pascal }}PageView>;
+} as ComponentMeta<typeof {{ inputs.name | pascal }}PageView>
 
 const Template: ComponentStory<typeof {{ inputs.name | pascal }}PageView> = (args) => (
   <Layout>
