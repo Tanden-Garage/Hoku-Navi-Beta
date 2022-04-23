@@ -1,6 +1,6 @@
-import { VFC } from "react"
-
 import { Anchor } from "@/components/ui/Anchor"
+
+import type { VFC } from "react"
 
 export const Header: VFC = () => {
   return (

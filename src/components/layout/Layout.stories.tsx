@@ -1,8 +1,8 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react"
-
 import { TopPageView } from "@/components/page/Top/View"
 
 import { Layout } from "@/components/layout"
+
+import type { ComponentStory, ComponentMeta } from "@storybook/react"
 
 export default {
   title: "Lauout",

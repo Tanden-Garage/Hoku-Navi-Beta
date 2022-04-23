@@ -1,9 +1,9 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react"
-
 import { Layout } from "@/components/layout"
 import { mockClubList } from "@/mocks/Club"
 
 import { SearchPageView } from "./View"
+
+import type { ComponentStory, ComponentMeta } from "@storybook/react"
 
 export default {
   title: "Page/Search",

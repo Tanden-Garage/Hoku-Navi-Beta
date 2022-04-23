@@ -16,8 +16,7 @@ export { {{ inputs.name | pascal }} } from "./{{ inputs.name | pascal }}"
 # `src/components/ui/{{ inputs.name | pascal }}/{{ inputs.name | pascal }}.stories.tsx`
 
 ```tsx
-import { ComponentStory, ComponentMeta } from "@storybook/react"
-import React from "react"
+import type { ComponentStory, ComponentMeta } from "@storybook/react"
 
 import { {{ inputs.name | pascal }} } from "./index"
 

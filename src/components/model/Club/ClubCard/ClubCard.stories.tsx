@@ -1,9 +1,8 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react"
-import React from "react"
-
 import { ClubCard } from "@/components/model/Club/ClubCard"
 
 import { medSoccer } from "@/mocks/Club"
+
+import type { ComponentStory, ComponentMeta } from "@storybook/react"
 
 export default {
   title: "Model/Club/ClubCard",

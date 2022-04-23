@@ -1,4 +1,4 @@
-import { Saluin } from "@/utils/sakuin"
+import type { Saluin } from "@/utils/sakuin"
 
 import { Anchor } from "@/components/ui/Anchor"
 import { Spacer } from "@/components/ui/Spacer"

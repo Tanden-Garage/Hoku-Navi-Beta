@@ -1,8 +1,8 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react"
-
 import { Layout } from "@/components/layout"
 
 import { ContactPageView } from "./View"
+
+import type { ComponentStory, ComponentMeta } from "@storybook/react"
 
 export default {
   title: "Page/Contact",

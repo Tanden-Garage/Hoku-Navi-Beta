@@ -1,4 +1,4 @@
-import { VFC } from "react"
+import type { VFC } from "react"
 
 type Size = typeof TAILWIND_SIZES_MAP[number]["n"]
 type Axis = "vertical" | "horizontal"

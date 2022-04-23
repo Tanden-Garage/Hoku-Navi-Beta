@@ -1,6 +1,6 @@
-import { VFC } from "react"
-
 import { Anchor } from "@/components/ui/Anchor"
+
+import type { VFC } from "react"
 
 const SERVICES_ITEMS = [
   { label: "運動系のすべてのタグ", href: "/athletic" },

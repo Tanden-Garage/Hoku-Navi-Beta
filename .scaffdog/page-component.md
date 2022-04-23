@@ -62,7 +62,7 @@ export const {{ inputs.name | pascal }}PageView: VFC = () => {
 # `src/components/page/{{ inputs.name | pascal }}/{{ inputs.name | pascal }}.stories.tsx`
 
 ```tsx
-import { ComponentStory, ComponentMeta } from "@storybook/react"
+import type { ComponentStory, ComponentMeta } from "@storybook/react"
 
 import { Layout } from "@/components/layout"
 

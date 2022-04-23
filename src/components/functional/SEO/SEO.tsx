@@ -1,5 +1,6 @@
 import NextHeadSeo from "next-head-seo"
-import { VFC } from "react"
+
+import type { VFC } from "react"
 
 interface SEOProps {
   path: string
@@ -33,7 +34,7 @@ export const MySEO: VFC<SEOProps> = ({
       title={noTitleTemplate ? title : `${title} - 北大部活サークルnavi`}
       canonical={pageUrl}
       description={description}
-      robots={noindex ? "noindex, nofollow" : undefined}
+      robots={noindex ? "noindex, nofollow" : "index, follow"}
       og={{
         title,
         description,
