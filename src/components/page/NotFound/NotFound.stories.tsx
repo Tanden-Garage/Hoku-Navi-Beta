@@ -7,7 +7,7 @@ import { NotFoundPageView } from "./View"
 export default {
   title: "Page/NotFound",
   component: NotFoundPageView,
-} as ComponentMeta<typeof NotFoundPageView>;
+} as ComponentMeta<typeof NotFoundPageView>
 
 const Template: ComponentStory<typeof NotFoundPageView> = (args) => (
   <Layout>
@@ -16,4 +16,6 @@ const Template: ComponentStory<typeof NotFoundPageView> = (args) => (
 )
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  path: "/notfound ",
+}
