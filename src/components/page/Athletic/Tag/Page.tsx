@@ -6,9 +6,9 @@ import { mockClubList } from "@/mocks/Club"
 
 import { AthleticTagPageView } from "./View"
 
-import type { NextPage } from "next"
+import type { NextPageWithLayout } from "next"
 
-export const AthleticTagPage: NextPage = () => {
+export const AthleticTagPage: NextPageWithLayout = () => {
   const router = useRouter()
 
   const path = router.asPath // /athletic/[category]のこと
