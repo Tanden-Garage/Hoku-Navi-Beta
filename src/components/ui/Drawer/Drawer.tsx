@@ -13,7 +13,7 @@ const SIDEBAR_ITEMS_UPPER = [
 const SIDEBAR_ITEMS_LOWER = [
   { label: "このサイトについて", href: "/about" },
   { label: "サイト運営団体について", href: "/my_id" }, //TODO: 正規のIDを入れる
-  { label: "メンバー募集", href: "/recruite" },
+  { label: "メンバー募集", href: "/recruit" },
   { label: "お問い合わせ", href: "/contact" },
 ]
 
