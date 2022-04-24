@@ -1,5 +1,4 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react"
-import React from "react"
+import type { ComponentStory, ComponentMeta } from "@storybook/react"
 
 import { Anchor } from "./index"
 
@@ -26,7 +25,6 @@ Primary.args = {
 export const Extarnal = Template.bind({})
 Extarnal.args = {
   href: "https://zenn.dev/takepepe/articles/atoms-type-definitions",
-  isExtarnal: true,
 }
 
 export const NoHref = Template.bind({})

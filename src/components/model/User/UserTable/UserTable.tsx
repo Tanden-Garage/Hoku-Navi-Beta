@@ -1,6 +1,6 @@
-import { VFC } from "react"
+import type { UserProps, UserListProps } from "@/types/User"
 
-import { UserProps, UserListProps } from "@/types/User"
+import type { VFC } from "react"
 
 const UserTableItem: VFC<UserProps> = ({ user }) => {
   const { id, name, gitHubUserName } = user

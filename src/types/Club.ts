@@ -1,4 +1,4 @@
-import { Schedule } from "@/types/Schedule"
+import type { Schedule } from "@/types/Schedule"
 
 // 画像のリンクはidより生成できる
 export type Club = {
@@ -6,7 +6,7 @@ export type Club = {
   name: string
   lastUpdateAt: Date
   path: string
-  introduction: string
+  introduction: string // 団体紹介に記載する文章
   isCertificatedByUni: boolean
   isCertificatedByMed: boolean
   isCertificatedByDen: boolean

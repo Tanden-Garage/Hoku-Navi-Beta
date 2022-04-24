@@ -5,8 +5,9 @@ import { Hero } from "@/components/ui/Hero"
 import { Spacer } from "@/components/ui/Spacer"
 import { TagList } from "@/components/ui/Tag"
 
-import { CategoryType } from "@/constant/category"
 import { ATHLETIC_TAG_POPULAR, CULTURAL_TAG_POPULAR } from "@/constant/tag"
+
+import type { CategoryType } from "@/constant/category"
 
 export const TopPageView: VFC = () => {
   const [tab, setTab] = useState<CategoryType>("athletic")
@@ -52,7 +53,11 @@ export const TopPageView: VFC = () => {
 const AthView: VFC = () => {
   return (
     <div>
-      <TagList label={"人気の運動系タグ"} tags={ATHLETIC_TAG_POPULAR} />
+      <h2>人気の運動系タグ</h2>
+
+      <Spacer size={8} />
+
+      <TagList tags={ATHLETIC_TAG_POPULAR} />
     </div>
   )
 }
@@ -60,7 +65,11 @@ const AthView: VFC = () => {
 const CulView: VFC = () => {
   return (
     <div>
-      <TagList label={"人気の文化系タグ"} tags={CULTURAL_TAG_POPULAR} />
+      <h2>人気の文化系タグ</h2>
+
+      <Spacer size={4} />
+
+      <TagList tags={CULTURAL_TAG_POPULAR} />
     </div>
   )
 }

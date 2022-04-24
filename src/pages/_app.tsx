@@ -1,10 +1,12 @@
 import "../styles/globals.css"
 import { ThemeProvider } from "next-themes"
 
-import type { AppProps } from "next/app"
+import type { AppPropsWithLayout } from "next/app"
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout ?? ((page) => page)
+
+  return getLayout(
     <ThemeProvider>
       <Component {...pageProps} />
     </ThemeProvider>

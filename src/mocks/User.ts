@@ -1,4 +1,4 @@
-import { User } from "@/types/User"
+import type { User } from "@/types/User"
 
 export const mockUser0: User = {
   id: 0,
