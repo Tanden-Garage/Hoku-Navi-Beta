@@ -1,6 +1,37 @@
 import { Anchor } from "@/components/ui/Anchor"
+import { Img } from "@/components/ui/Img"
 
 import type { VFC } from "react"
+
+type Member = {
+  name: string
+  belongs: string
+  description: string
+  avaterUrl: string
+}
+
+const MEMBERS: Member[] = [
+  {
+    name: "井上公輔",
+    belongs: "北海道大学経済学部3年",
+    description: "プログラミング歴5ヶ月。副リーダーをなんとなくこなす。",
+    avaterUrl:
+      "https://hubcnavi.net/storage/orgs/4898bd26ad2195d09ce7/large.jpg",
+  },
+  {
+    name: "國見たかし",
+    belongs: "北海道大学経済学部3年",
+    description: "プログラミング歴5ヶ月。副リーダーをなんとなくこなす。",
+    avaterUrl:
+      "https://hubcnavi.net/storage/orgs/4898bd26ad2195d09ce7/large.jpg",
+  },
+  {
+    name: "保井けんご",
+    belongs: "北海道大学経済学部3年",
+    description: "プログラミング歴5ヶ月。副リーダーをなんとなくこなす。",
+    avaterUrl: "/member/kosuke_inoue.png",
+  },
+]
 
 export const AboutPageView: VFC = () => {
   return (
@@ -25,6 +56,32 @@ export const AboutPageView: VFC = () => {
         </Anchor>
         はいかなる組織や団体にも属しておらず、北海道大学が公認するものではありません。
       </p>
+
+      <h3>メンバー紹介</h3>
+      <div className="flex flex-col gap-2">
+        {MEMBERS.map((member) => (
+          <div
+            key={member.name}
+            className="flex gap-2 items-center p-2 rounded-lg shadow"
+          >
+            <div className="p-2 avatar">
+              <div className="w-12 rounded-full">
+                <Img src={member.avaterUrl} width={600} height={600} alt="" />
+              </div>
+            </div>
+            <div className="grow">
+              <p className="my-0 ">
+                <span className="pr-2 font-bold">{member.name}</span>
+                <span className="hidden text-sm sm:inline">
+                  {member.belongs}
+                </span>
+              </p>
+              <p className="my-0 text-sm">{member.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
       <p>
         開発や運営を支えてくれる北大生をいつでも歓迎します。詳しくは
         <Anchor href="/recruit" className="text-primary">
