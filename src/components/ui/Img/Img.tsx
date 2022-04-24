@@ -10,7 +10,9 @@ const cloudflareLoader: ImageLoader = ({ src, width, quality }) => {
     quality = 75
   }
 
-  const host = IS_DEV ? "localhost:3000" : "hoku-navi-beta.pages.dev"
+  const host = IS_DEV
+    ? "http://localhost:3000"
+    : "https://hoku-navi-beta.pages.dev"
 
   const imgSrc = src.startsWith("/") ? host + src : src
 
