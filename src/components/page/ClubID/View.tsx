@@ -139,7 +139,6 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
               </div>
               <div className="stat-title">設立年</div>
               <div className="stat-value">{statData(establishedYear)}年</div>
-              <div className="stat-desc">Jan 1st - Feb 1st</div>
             </div>
 
             <div className="stat">
@@ -148,7 +147,6 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
               </div>
               <div className="stat-title">人数</div>
               <div className="stat-value">{statData(size)}人</div>
-              <div className="stat-desc">↗︎ 400 (22%)</div>
             </div>
 
             <div className="stat">
@@ -157,7 +155,6 @@ export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
               </div>
               <div className="stat-title">年間費用</div>
               <div className="stat-value">{statData(fee)}円</div>
-              <div className="stat-desc">↘︎ 90 (14%)</div>
             </div>
           </div>
         </div>
