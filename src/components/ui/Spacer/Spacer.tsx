@@ -1,14 +1,19 @@
-import type { VFC } from "react"
+import type { VFC, ComponentProps } from "react"
 
 type Size = typeof TAILWIND_SIZES_MAP[number]["n"]
 type Axis = "vertical" | "horizontal"
 
-interface SpacerProps {
+interface SpacerProps extends ComponentProps<"span"> {
   size: Size
   axis?: Axis
 }
 
-export const Spacer: VFC<SpacerProps> = ({ size, axis }) => {
+export const Spacer: VFC<SpacerProps> = ({
+  size,
+  axis,
+  className,
+  ...props
+}) => {
   const w = axis === "vertical" ? "px" : size
   const h = axis === "horizontal" ? "px" : size
 
@@ -18,11 +23,12 @@ export const Spacer: VFC<SpacerProps> = ({ size, axis }) => {
 
   return (
     <span
-      className={`block w-${w} h-${h}`}
+      className={`block w-${w} h-${h} ${className}`}
       style={{
         minWidth: minW,
         minHeight: minH,
       }}
+      {...props}
     />
   )
 }
