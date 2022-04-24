@@ -1,8 +1,8 @@
-import { FC } from "react"
-
 import { Drawer } from "@/components/ui/Drawer"
 import { Footer } from "@/components/ui/Footer"
 import { Header } from "@/components/ui/Header"
+
+import type { FC } from "react"
 
 export const Layout: FC = ({ children }) => {
   return (

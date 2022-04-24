@@ -1,12 +1,11 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react"
-import React from "react"
-
 import {
   ATHLETIC_TAG_ALL,
   ATHLETIC_TAG_POPULAR,
   CULTURAL_TAG_ALL,
   CULTURAL_TAG_POPULAR,
 } from "@/constant/tag"
+
+import type { ComponentStory, ComponentMeta } from "@storybook/react"
 
 import { Tag, TagList } from "./index"
 
@@ -21,7 +20,7 @@ const ListTemplate: ComponentStory<typeof TagList> = (args) => (
 )
 
 export const Single = SingleTemplate.bind({})
-Single.args = { tag: ATHLETIC_TAG_ALL[0] }
+Single.args = { tag: { label: "合気道", path: "/athletic/aikido" } }
 
 export const AthleticAllTagList = ListTemplate.bind({})
 AthleticAllTagList.args = {

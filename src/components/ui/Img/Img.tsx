@@ -1,7 +1,7 @@
 import Image from "next/image"
-import { VFC } from "react"
 
 import type { ImageProps, ImageLoader } from "next/image"
+import type { VFC } from "react"
 
 const IS_DEV = process.env.NODE_ENV === "development"
 

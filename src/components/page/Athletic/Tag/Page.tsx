@@ -14,6 +14,9 @@ export const AthleticTagPage: NextPage = () => {
   const path = router.asPath // /athletic/[category]のこと
   const tagName = ATHLETIC_TAG_ALL.filter((tag) => tag.path === path)[0]?.label
 
+  // TODO: Implement loading component
+  if (!tagName) return <></>
+
   return (
     <>
       <MySEO

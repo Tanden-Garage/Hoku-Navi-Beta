@@ -51,16 +51,16 @@ export const convertToSakuin: Gojuon = (items) => {
   const treatedItems = pretreatment(items)
 
   treatedItems.forEach((item) => {
-    if (/[あ-お]/.test(item.yomi[0])) あ行.push(item)
-    if (/[か-こが-ご]/.test(item.yomi[0])) か行.push(item)
-    if (/[さ-そざ-ぞ]/.test(item.yomi[0])) さ行.push(item)
-    if (/[た-とだ-ど]/.test(item.yomi[0])) た行.push(item)
-    if (/[な-の]/.test(item.yomi[0])) な行.push(item)
-    if (/[は-ほば-ぼぱ-ぽ]/.test(item.yomi[0])) は行.push(item)
-    if (/[ま-も]/.test(item.yomi[0])) ま行.push(item)
-    if (/[や-よ]/.test(item.yomi[0])) や行.push(item)
-    if (/[ら-ろ]/.test(item.yomi[0])) ら行.push(item)
-    if (/[わ-ん]/.test(item.yomi[0])) わをん.push(item)
+    if (/[あ-お]/.test(item.yomi.charAt(0))) あ行.push(item)
+    if (/[か-こが-ご]/.test(item.yomi.charAt(0))) か行.push(item)
+    if (/[さ-そざ-ぞ]/.test(item.yomi.charAt(0))) さ行.push(item)
+    if (/[た-とだ-ど]/.test(item.yomi.charAt(0))) た行.push(item)
+    if (/[な-の]/.test(item.yomi.charAt(0))) な行.push(item)
+    if (/[は-ほば-ぼぱ-ぽ]/.test(item.yomi.charAt(0))) は行.push(item)
+    if (/[ま-も]/.test(item.yomi.charAt(0))) ま行.push(item)
+    if (/[や-よ]/.test(item.yomi.charAt(0))) や行.push(item)
+    if (/[ら-ろ]/.test(item.yomi.charAt(0))) ら行.push(item)
+    if (/[わ-ん]/.test(item.yomi.charAt(0))) わをん.push(item)
   })
 
   return {

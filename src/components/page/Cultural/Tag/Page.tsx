@@ -14,6 +14,9 @@ export const CulturalTagPage: NextPage = () => {
   const path = router.asPath // /cultual/[category]のこと
   const tagName = CULTURAL_TAG_ALL.filter((tag) => tag.path === path)[0]?.label
 
+  // TODO: Implement loading component
+  if (!tagName) return <></>
+
   return (
     <>
       <MySEO

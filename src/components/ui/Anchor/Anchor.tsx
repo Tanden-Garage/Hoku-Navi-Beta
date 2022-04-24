@@ -1,6 +1,6 @@
 import Link from "next/link"
-import React from "react"
-import { ComponentProps, FC } from "react"
+
+import type { ComponentProps, FC } from "react"
 
 type AnchorTagProps = ComponentProps<"a">
 

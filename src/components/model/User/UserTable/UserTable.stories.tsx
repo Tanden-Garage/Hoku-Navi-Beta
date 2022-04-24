@@ -1,9 +1,8 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react"
-import React from "react"
-
 import { UserTable } from "@/components/model/User/UserTable"
 
 import { mockUserList } from "@/mocks/User"
+
+import type { ComponentStory, ComponentMeta } from "@storybook/react"
 
 export default {
   title: "Model/User/UserTable",

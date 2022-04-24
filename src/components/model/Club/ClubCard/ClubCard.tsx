@@ -1,9 +1,9 @@
-import { VFC } from "react"
-
-import { ClubProps } from "@/types/Club"
+import type { ClubProps } from "@/types/Club"
 
 import { Anchor } from "@/components/ui/Anchor"
 import { Img } from "@/components/ui/Img"
+
+import type { VFC } from "react"
 
 export const ClubCard: VFC<ClubProps> = ({ club }) => {
   const { id, name } = club

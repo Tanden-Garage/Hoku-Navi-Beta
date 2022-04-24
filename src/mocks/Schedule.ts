@@ -1,4 +1,4 @@
-import { Schedule } from "@/types/Schedule"
+import type { Schedule } from "@/types/Schedule"
 
 export const mockSchedule: Schedule = {
   Apr: "新歓、RARA杯",

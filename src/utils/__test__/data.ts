@@ -1,4 +1,4 @@
-import { ClubItem, Gojuon } from "@/utils/sakuin"
+import type { ClubItem, Gojuon } from "@/utils/sakuin"
 
 export const 処理前: ClubItem[] = [
   {

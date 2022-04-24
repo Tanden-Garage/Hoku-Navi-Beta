@@ -1,8 +1,8 @@
-import { VFC } from "react"
-
 import { Anchor } from "@/components/ui/Anchor"
 import { SearchBar } from "@/components/ui/SearchBar"
 import { Spacer } from "@/components/ui/Spacer"
+
+import type { VFC } from "react"
 
 const SIDEBAR_ITEMS_UPPER = [
   { label: "運動系のすべてのタグ", href: "/athletic" },

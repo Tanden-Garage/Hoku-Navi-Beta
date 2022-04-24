@@ -2,7 +2,7 @@ import clsx from "clsx"
 import { useRouter } from "next/router"
 import { useEffect, useRef, VFC } from "react"
 
-import { Club } from "@/types/Club"
+import type { Club } from "@/types/Club"
 
 import { ClubCard } from "@/components/model/Club/ClubCard"
 

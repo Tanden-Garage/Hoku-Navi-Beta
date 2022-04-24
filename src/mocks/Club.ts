@@ -1,4 +1,4 @@
-import { Club } from "@/types/Club"
+import type { Club } from "@/types/Club"
 
 import { mockSchedule } from "@/mocks/Schedule"
 

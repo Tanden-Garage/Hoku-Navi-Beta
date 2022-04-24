@@ -1,10 +1,10 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react"
-
 import { 処理済み } from "@/utils/__test__/data"
 
 import { Layout } from "@/components/layout"
 
 import { SakuinPageView } from "./View"
+
+import type { ComponentStory, ComponentMeta } from "@storybook/react"
 
 export default {
   title: "Page/Sakuin",

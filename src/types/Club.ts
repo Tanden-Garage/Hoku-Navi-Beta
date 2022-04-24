@@ -1,4 +1,4 @@
-import { Schedule } from "@/types/Schedule"
+import type { Schedule } from "@/types/Schedule"
 
 // 画像のリンクはidより生成できる
 export type Club = {

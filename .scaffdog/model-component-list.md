@@ -17,7 +17,7 @@ export { {{ inputs.component | pascal }} } from "./{{ inputs.component | pascal 
 # `src/components/model/{{ inputs.model | pascal }}/{{ inputs.component | pascal }}/{{ inputs.component | pascal }}.tsx`
 
 ```tsx
-import { VFC } from "react"
+import type { VFC } from "react"
 
 import { {{ inputs.model | pascal }}ListProps } from "@/types/{{ inputs.model | pascal }}"
 
@@ -29,8 +29,7 @@ export const {{ inputs.component | pascal }}: VFC<{{ inputs.model | pascal }}Lis
 # `src/components/model/{{ inputs.model | pascal }}/{{ inputs.component | pascal }}/{{ inputs.component | pascal }}.stories.tsx`
 
 ```tsx
-import { ComponentStory, ComponentMeta } from "@storybook/react"
-import React from "react"
+import type { ComponentStory, ComponentMeta } from "@storybook/react"
 
 import { {{ inputs.component | pascal }} } from "@/components/model/{{ inputs.model | pascal }}/{{ inputs.component | pascal }}"
 

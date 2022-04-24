@@ -5,8 +5,9 @@ import { Hero } from "@/components/ui/Hero"
 import { Spacer } from "@/components/ui/Spacer"
 import { TagList } from "@/components/ui/Tag"
 
-import { CategoryType } from "@/constant/category"
 import { ATHLETIC_TAG_POPULAR, CULTURAL_TAG_POPULAR } from "@/constant/tag"
+
+import type { CategoryType } from "@/constant/category"
 
 export const TopPageView: VFC = () => {
   const [tab, setTab] = useState<CategoryType>("athletic")

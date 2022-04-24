@@ -1,7 +1,6 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react"
-import React from "react"
-
 import { Spacer } from "@/components/ui/Spacer"
+
+import type { ComponentStory, ComponentMeta } from "@storybook/react"
 
 export default {
   title: "UI/Spacer",
