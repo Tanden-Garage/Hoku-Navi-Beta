@@ -6,9 +6,9 @@ import { mockClubList } from "@/mocks/Club"
 
 import { CulturalTagPageView } from "./View"
 
-import type { NextPage } from "next"
+import type { NextPageWithLayout } from "next"
 
-export const CulturalTagPage: NextPage = () => {
+export const CulturalTagPage: NextPageWithLayout = () => {
   const router = useRouter()
 
   const path = router.asPath // /cultual/[category]のこと
