@@ -1,9 +1,9 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react"
-
 import { Layout } from "@/components/layout"
 import { medSoccer } from "@/mocks/Club"
 
 import { ClubIdPageView } from "./View"
+
+import type { ComponentStory, ComponentMeta } from "@storybook/react"
 
 export default {
   title: "Page/Club",
