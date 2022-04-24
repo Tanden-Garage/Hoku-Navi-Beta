@@ -1,8 +1,8 @@
-import { VFC } from "react"
-
-import { ScheduleProps } from "@/types/Schedule"
+import type { ScheduleProps } from "@/types/Schedule"
 
 import { Spacer } from "@/components/ui/Spacer"
+
+import type { VFC } from "react"
 
 interface Props {
   month: string

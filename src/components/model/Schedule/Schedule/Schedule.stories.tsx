@@ -1,9 +1,8 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react"
-import React from "react"
-
 import { Schedule } from "@/components/model/Schedule/Schedule"
 
 import { mockSchedule } from "@/mocks/Schedule"
+
+import type { ComponentStory, ComponentMeta } from "@storybook/react"
 
 export default {
   title: "Model/Schedule/Schedule",

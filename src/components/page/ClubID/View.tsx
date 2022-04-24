@@ -15,7 +15,7 @@ import {
   TwitterShareButton,
 } from "react-share"
 
-import { ClubProps } from "@/types/Club"
+import type { ClubProps } from "@/types/Club"
 
 import { dateFormatter } from "@/utils/dayFormatter"
 
