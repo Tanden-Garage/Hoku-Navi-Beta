@@ -5263,10 +5263,10 @@ csstype@^3.0.2:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.10.tgz#2ad3a7bed70f35b965707c092e5f30b327c290e5"
   integrity sha512-2u44ZG2OcNUO9HDp/Jl8C07x6pU/eTR3ncV91SiK3dhG9TWvRVsCoJw14Ckx5DgWkzGA3waZWO3d7pgqpUI/XA==
 
-daisyui@^2.13.6:
-  version "2.13.6"
-  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-2.13.6.tgz#91f938671d60ee6cc9ac8f720c7f7676affd47d4"
-  integrity sha512-Z3DOqNwIKxp4og9qd64i8/eS4i3TccmmfcaKKXM/Y619FmRjKXRmKAm/GTu9qH+4W7GcVdL8IRxuw0z5GQSqvQ==
+daisyui@^2.14.2:
+  version "2.14.2"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-2.14.2.tgz#be36e1c9687b985288b15246029ee2c3d4f48425"
+  integrity sha512-/FxRBLC/xydIqxv+EJHfmmH+UndrwcaAxbWsS/oVLnoeOdb4MN4VlkJ3sYOYrl3tmw/D1L5Lp0PK07ebY0O6QA==
   dependencies:
     color "^4.2"
     css-selector-tokenizer "^0.8.0"
@@ -8460,6 +8460,7 @@ jsonp@^0.2.1:
   integrity sha1-pltPoPEL2nGaBUQep7lMVfPhW64=
   dependencies:
     debug "^2.1.3"
+
 jsonparse@^1.2.0:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/jsonparse/-/jsonparse-1.3.1.tgz#3f4dae4a91fac315f71062f8521cc239f1366280"
