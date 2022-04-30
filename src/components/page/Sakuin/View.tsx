@@ -1,4 +1,4 @@
-import type { Saluin } from "@/utils/sakuin"
+import type { Sakuin } from "@/utils/sakuin"
 
 import { Anchor } from "@/components/ui/Anchor"
 import { Spacer } from "@/components/ui/Spacer"
@@ -6,7 +6,7 @@ import { Spacer } from "@/components/ui/Spacer"
 import type { VFC } from "react"
 
 interface SakuinPageViewProps {
-  items: Saluin
+  items: Sakuin
 }
 
 export const SakuinPageView: VFC<SakuinPageViewProps> = ({ items }) => {
