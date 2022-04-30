@@ -1,5 +1,4 @@
 import { useState, VFC } from "react"
-import { AiOutlineInfoCircle } from "react-icons/ai"
 
 import type { ClubItem, Sakuin } from "@/utils/sakuin"
 
@@ -23,15 +22,7 @@ export const SakuinPageView: VFC<SakuinPageViewProps> = ({ items }) => {
     <main className="flex flex-col p-4 mx-auto max-w-3xl h-screen prose">
       <Spacer size={4} />
 
-      <h1>
-        団体さくいん
-        <span
-          className="align-text-bottom tooltip tooltip-info tooltip-bottom md:tooltip-right"
-          data-tip="ひらがなアイコンをクリックしてみて！"
-        >
-          <AiOutlineInfoCircle size={28} className="text-info" />
-        </span>
-      </h1>
+      <h1>団体さくいん</h1>
 
       <div className="flex flex-wrap gap-4 justify-center mt-0.5 w-full lg:mt-0">
         {(Object.keys(items) as Key[]).map((key) => {
