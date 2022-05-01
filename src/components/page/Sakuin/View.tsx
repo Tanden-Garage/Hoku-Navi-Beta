@@ -16,6 +16,7 @@ export const SakuinPageView: VFC<SakuinPageViewProps> = ({ items }) => {
   const [currentKey, setCurrentKey] = useState<Key>("あ行")
 
   const current = items[currentKey]
+  const itemOfCurrentKeyIsEmpty = current.length === 0
 
   const keys = Object.keys(items) as Key[]
 
@@ -58,7 +59,7 @@ export const SakuinPageView: VFC<SakuinPageViewProps> = ({ items }) => {
       <h2 className="py-1 px-2 m-0 bg-info">{currentKey}</h2>
 
       <ul className="flex flex-wrap w-full">
-        {current.length === 0 && <span>該当なし😢</span>}
+        {itemOfCurrentKeyIsEmpty && <span>該当なし😢</span>}
         {current.map((club) => (
           <li key={club.name} className="w-1/2">
             <Anchor href={club.path} className="hover:underline">
