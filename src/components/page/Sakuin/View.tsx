@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import { useState, VFC } from "react"
+import { Dispatch, SetStateAction, useState, VFC } from "react"
 
 import type { Sakuin } from "@/utils/sakuin"
 
@@ -26,25 +26,11 @@ export const SakuinPageView: VFC<SakuinPageViewProps> = ({ items }) => {
 
       <h1>団体さくいん</h1>
 
-      <div className="flex flex-wrap gap-4 justify-center mt-0.5 w-full lg:mt-0">
-        {keys.map((key) => {
-          const hiragana = key.charAt(0)
-          const onClick = () => setCurrentKey(key)
-
-          const containerStyle = clsx(
-            "shrink-0 w-10 h-10 text-3xl text-center align-middle rounded-full border cursor-pointer border-primary",
-            key === currentKey
-              ? "bg-primary text-base-100"
-              : "bg-base-100 text-primary"
-          )
-
-          return (
-            <div className={containerStyle} onClick={onClick} key={key}>
-              {hiragana}
-            </div>
-          )
-        })}
-      </div>
+      <Switcher
+        keys={keys}
+        currentKey={currentKey}
+        setCurrentKey={setCurrentKey}
+      />
 
       <Spacer size={8} />
 
@@ -63,5 +49,35 @@ export const SakuinPageView: VFC<SakuinPageViewProps> = ({ items }) => {
 
       <Spacer size={20} />
     </main>
+  )
+}
+
+interface SwitcherProps {
+  keys: Key[]
+  currentKey: Key
+  setCurrentKey: Dispatch<SetStateAction<Key>>
+}
+
+const Switcher: VFC<SwitcherProps> = ({ keys, currentKey, setCurrentKey }) => {
+  return (
+    <div className="flex flex-wrap gap-4 justify-center mt-0.5 w-full lg:mt-0">
+      {keys.map((key) => {
+        const hiragana = key.charAt(0)
+        const onClick = () => setCurrentKey(key)
+
+        const containerStyle = clsx(
+          "shrink-0 w-10 h-10 text-3xl text-center align-middle rounded-full border cursor-pointer border-primary",
+          key === currentKey
+            ? "bg-primary text-base-100"
+            : "bg-base-100 text-primary"
+        )
+
+        return (
+          <div className={containerStyle} onClick={onClick} key={key}>
+            {hiragana}
+          </div>
+        )
+      })}
+    </div>
   )
 }
