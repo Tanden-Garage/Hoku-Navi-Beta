@@ -17,7 +17,7 @@ export const SakuinPageView: VFC<SakuinPageViewProps> = ({ items }) => {
   const current = items[currentKey]
 
   return (
-    <main className="flex flex-col p-4 mx-auto max-w-3xl h-screen prose">
+    <main className="flex flex-col p-4 mx-auto max-w-3xl min-h-screen prose">
       <Spacer size={4} />
 
       <h1>団体さくいん</h1>
