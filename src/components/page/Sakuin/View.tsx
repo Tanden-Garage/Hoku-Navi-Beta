@@ -14,8 +14,6 @@ interface SakuinPageViewProps {
 export const SakuinPageView: VFC<SakuinPageViewProps> = ({ items }) => {
   const [currentKey, setCurrentKey] = useState<Key>("あ行")
 
-  const handleClick = (key: Key) => setCurrentKey(key)
-
   const current: ClubItem[] = items[currentKey]
 
   return (
@@ -32,10 +30,12 @@ export const SakuinPageView: VFC<SakuinPageViewProps> = ({ items }) => {
           const styleIsActive = key === currentKey ? "bg-info" : "bg-base-100"
           const iconIsActive = key === currentKey ? "🥸" : avater
 
+          const onClick = () => setCurrentKey(key)
+
           return (
             <div
               className={`shrink-0 border border-primary w-10 h-10 rounded-full ${styleIsActive}`}
-              onClick={() => handleClick(key)}
+              onClick={() => onClick()}
               key={key}
             >
               <p className="m-0 text-3xl text-center align-middle">
