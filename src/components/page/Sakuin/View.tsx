@@ -12,11 +12,11 @@ interface SakuinPageViewProps {
 }
 
 export const SakuinPageView: VFC<SakuinPageViewProps> = ({ items }) => {
-  const [activeKey, setActiveKey] = useState<Key>("あ行")
+  const [currentKey, setCurrentKey] = useState<Key>("あ行")
 
-  const handleClick = (key: Key) => setActiveKey(key)
+  const handleClick = (key: Key) => setCurrentKey(key)
 
-  const current: ClubItem[] = items[activeKey]
+  const current: ClubItem[] = items[currentKey]
 
   return (
     <main className="flex flex-col p-4 mx-auto max-w-3xl h-screen prose">
@@ -29,8 +29,8 @@ export const SakuinPageView: VFC<SakuinPageViewProps> = ({ items }) => {
           const avater = key.slice(0, 1)
 
           // TODO: active時のデザイン決め
-          const styleIsActive = key === activeKey ? "bg-info" : "bg-base-100"
-          const iconIsActive = key === activeKey ? "🥸" : avater
+          const styleIsActive = key === currentKey ? "bg-info" : "bg-base-100"
+          const iconIsActive = key === currentKey ? "🥸" : avater
 
           return (
             <div
@@ -48,7 +48,7 @@ export const SakuinPageView: VFC<SakuinPageViewProps> = ({ items }) => {
 
       <Spacer size={8} />
 
-      <h2 className="py-1 px-2 m-0 bg-info">{activeKey}</h2>
+      <h2 className="py-1 px-2 m-0 bg-info">{currentKey}</h2>
 
       <ul className="flex flex-wrap w-full">
         {current.length === 0 && <span>該当なし😢</span>}
