@@ -29,26 +29,18 @@ export const SakuinPageView: VFC<SakuinPageViewProps> = ({ items }) => {
       <div className="flex flex-wrap gap-4 justify-center mt-0.5 w-full lg:mt-0">
         {keys.map((key) => {
           const hiragana = key.charAt(0)
-
           const onClick = () => setCurrentKey(key)
 
+          const containerStyle = clsx(
+            "shrink-0 w-10 h-10 text-3xl text-center align-middle rounded-full border cursor-pointer border-primary",
+            key === currentKey
+              ? "bg-primary text-base-100"
+              : "bg-base-100 text-primary"
+          )
+
           return (
-            <div
-              className={clsx(
-                "shrink-0 w-10 h-10 rounded-full border cursor-pointer border-primary",
-                key === currentKey ? "bg-primary" : "bg-base-100"
-              )}
-              onClick={() => onClick()}
-              key={key}
-            >
-              <p
-                className={clsx(
-                  "m-0 text-3xl text-center align-middle",
-                  key === currentKey ? "text-base-100" : "text-primary"
-                )}
-              >
-                {hiragana}
-              </p>
+            <div className={containerStyle} onClick={onClick} key={key}>
+              {hiragana}
             </div>
           )
         })}
