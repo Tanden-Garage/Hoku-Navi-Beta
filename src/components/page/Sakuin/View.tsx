@@ -35,7 +35,7 @@ export const SakuinPageView: VFC<SakuinPageViewProps> = ({ items }) => {
           return (
             <div
               className={clsx(
-                "shrink-0 w-10 h-10 rounded-full border border-primary",
+                "shrink-0 w-10 h-10 rounded-full border cursor-pointer border-primary",
                 key === currentKey ? "bg-primary" : "bg-base-100"
               )}
               onClick={() => onClick()}
