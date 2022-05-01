@@ -16,6 +16,8 @@ export const SakuinPageView: VFC<SakuinPageViewProps> = ({ items }) => {
 
   const current = items[currentKey]
 
+  const keys = Object.keys(items) as Key[]
+
   return (
     <main className="flex flex-col p-4 mx-auto max-w-3xl min-h-screen prose">
       <Spacer size={4} />
@@ -23,7 +25,7 @@ export const SakuinPageView: VFC<SakuinPageViewProps> = ({ items }) => {
       <h1>団体さくいん</h1>
 
       <div className="flex flex-wrap gap-4 justify-center mt-0.5 w-full lg:mt-0">
-        {(Object.keys(items) as Key[]).map((key) => {
+        {keys.map((key) => {
           const avater = key.slice(0, 1)
 
           // TODO: active時のデザイン決め
