@@ -26,11 +26,11 @@ export const SakuinPageView: VFC<SakuinPageViewProps> = ({ items }) => {
 
       <div className="flex flex-wrap gap-4 justify-center mt-0.5 w-full lg:mt-0">
         {keys.map((key) => {
-          const avater = key.slice(0, 1)
+          const hiragana = key.charAt(0)
 
           // TODO: active時のデザイン決め
           const styleIsActive = key === currentKey ? "bg-info" : "bg-base-100"
-          const iconIsActive = key === currentKey ? "🥸" : avater
+          const iconIsActive = key === currentKey ? "🥸" : hiragana
 
           const onClick = () => setCurrentKey(key)
 
