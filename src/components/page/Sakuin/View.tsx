@@ -1,3 +1,4 @@
+import clsx from "clsx"
 import { useState, VFC } from "react"
 
 import type { Sakuin } from "@/utils/sakuin"
@@ -28,20 +29,24 @@ export const SakuinPageView: VFC<SakuinPageViewProps> = ({ items }) => {
         {keys.map((key) => {
           const hiragana = key.charAt(0)
 
-          // TODO: active時のデザイン決め
-          const styleIsActive = key === currentKey ? "bg-info" : "bg-base-100"
-          const iconIsActive = key === currentKey ? "🥸" : hiragana
-
           const onClick = () => setCurrentKey(key)
 
           return (
             <div
-              className={`shrink-0 border border-primary w-10 h-10 rounded-full ${styleIsActive}`}
+              className={clsx(
+                "shrink-0 w-10 h-10 rounded-full border border-primary",
+                key === currentKey ? "bg-primary" : "bg-base-100"
+              )}
               onClick={() => onClick()}
               key={key}
             >
-              <p className="m-0 text-3xl text-center align-middle">
-                {iconIsActive}
+              <p
+                className={clsx(
+                  "m-0 text-3xl text-center align-middle",
+                  key === currentKey ? "text-base-100" : "text-primary"
+                )}
+              >
+                {hiragana}
               </p>
             </div>
           )
