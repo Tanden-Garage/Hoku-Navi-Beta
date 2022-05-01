@@ -1,6 +1,6 @@
 import { useState, VFC } from "react"
 
-import type { ClubItem, Sakuin } from "@/utils/sakuin"
+import type { Sakuin } from "@/utils/sakuin"
 
 import { Anchor } from "@/components/ui/Anchor"
 import { Spacer } from "@/components/ui/Spacer"
@@ -14,7 +14,7 @@ interface SakuinPageViewProps {
 export const SakuinPageView: VFC<SakuinPageViewProps> = ({ items }) => {
   const [currentKey, setCurrentKey] = useState<Key>("あ行")
 
-  const current: ClubItem[] = items[currentKey]
+  const current = items[currentKey]
 
   return (
     <main className="flex flex-col p-4 mx-auto max-w-3xl h-screen prose">
