@@ -17,18 +17,12 @@ export const ContactPageView: VFC = () => {
   const [isModalOn, setIsModalOn] = useState(false)
 
   const {
-    handleSubmit,
     register,
     formState: { errors },
     reset,
   } = useForm<FormValues>({
     defaultValues: defaultValues,
   })
-
-  const onSubmit = () => {
-    // ここでPOSTを行う
-    setIsModalOn(true)
-  }
 
   const modalOff = () => {
     reset(defaultValues)
@@ -66,7 +60,8 @@ export const ContactPageView: VFC = () => {
       <Spacer size={8} />
 
       <form
-        onSubmit={handleSubmit(onSubmit)}
+        action="https://getform.io/f/9bc0f6e6-ed8d-4fb2-8753-3b015b7438d0"
+        method="POST"
         className="flex flex-col gap-4 items-center w-full"
       >
         <div className="w-full max-w-lg">
