@@ -1,13 +1,23 @@
 import clsx from "clsx"
-import { useCallback, useState, VFC } from "react"
+import InnerHTML from "dangerously-set-html-content"
+import { useCallback, useEffect, useState, VFC } from "react"
+
+import type { Article } from "@/types/Article"
 
 import { Hero } from "@/components/ui/Hero"
 import { Spacer } from "@/components/ui/Spacer"
 import { TagList } from "@/components/ui/Tag"
 
 import { ATHLETIC_TAG_POPULAR, CULTURAL_TAG_POPULAR } from "@/constant/tag"
+import { client } from "@/lib/client"
 
 import type { CategoryType } from "@/constant/category"
+
+const fetchArticle = async () =>
+  await client.get<Article>({
+    endpoint: "article",
+    contentId: "dlumd_n8awt3",
+  })
 
 export const TopPageView: VFC = () => {
   const [tab, setTab] = useState<CategoryType>("athletic")
@@ -22,8 +32,17 @@ export const TopPageView: VFC = () => {
     setTab("cultural")
   }, [])
 
+  const [test, setTest] = useState<Article>()
+
+  useEffect(() => {
+    fetchArticle().then((res) => {
+      console.log(res)
+      setTest(res)
+    })
+  })
+
   return (
-    <main className="flex flex-col items-center h-screen">
+    <main className="flex flex-col items-center">
       <Hero />
 
       <Spacer size={4} />
@@ -46,6 +65,9 @@ export const TopPageView: VFC = () => {
       <Spacer size={4} />
 
       <div className="p-2">{isAthletic ? <AthView /> : <CulView />}</div>
+      {test && (
+        <InnerHTML className="m-auto max-w-2xl prose" html={test.contents} />
+      )}
     </main>
   )
 }
