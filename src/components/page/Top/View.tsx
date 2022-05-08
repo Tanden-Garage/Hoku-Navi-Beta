@@ -23,7 +23,7 @@ export const TopPageView: VFC = () => {
   }, [])
 
   return (
-    <main className="flex flex-col items-center h-screen">
+    <main className="flex flex-col items-center min-h-screen">
       <Hero />
 
       <Spacer size={4} />
