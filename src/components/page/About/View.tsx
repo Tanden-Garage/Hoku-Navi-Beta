@@ -1,7 +1,7 @@
 import { Anchor } from "@/components/ui/Anchor"
 import { Img } from "@/components/ui/Img"
 
-import type { VFC } from "react"
+import type { FC } from "react"
 
 type Member = {
   name: string
@@ -33,7 +33,7 @@ const MEMBERS: Member[] = [
   },
 ]
 
-export const AboutPageView: VFC = () => {
+export const AboutPageView: FC = () => {
   return (
     <main className="p-12 mx-auto prose">
       <h1>このサイトについて</h1>

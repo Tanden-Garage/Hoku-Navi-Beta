@@ -1,13 +1,13 @@
 import { Anchor } from "@/components/ui/Anchor"
 import { Spacer } from "@/components/ui/Spacer"
 
-import type { VFC } from "react"
+import type { FC } from "react"
 
 interface NotFoundPageProps {
   path: string
 }
 
-export const NotFoundPageView: VFC<NotFoundPageProps> = ({ path }) => {
+export const NotFoundPageView: FC<NotFoundPageProps> = ({ path }) => {
   return (
     <main className="flex flex-col items-center p-8">
       <div

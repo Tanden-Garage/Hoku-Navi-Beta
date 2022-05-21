@@ -42,9 +42,9 @@ export const {{ inputs.name | pascal }}Page: NextPageWithLayout = () => {
 # `src/components/page/{{ inputs.name | pascal }}/View.tsx`
 
 ```tsx
-import type { VFC } from "react"
+import type { FC } from "react"
 
-export const {{ inputs.name | pascal }}PageView: VFC = () => {
+export const {{ inputs.name | pascal }}PageView: FC = () => {
   return (
     <main className="flex flex-col justify-center items-center p-4 h-screen">
       <h1>Hello world!</h1>

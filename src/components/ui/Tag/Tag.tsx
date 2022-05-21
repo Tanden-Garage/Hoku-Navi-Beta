@@ -1,6 +1,6 @@
 import { Anchor } from "@/components/ui/Anchor"
 
-import type { VFC } from "react"
+import type { FC } from "react"
 
 type Tag = {
   label: string
@@ -11,7 +11,7 @@ interface TagProps {
   tag: Tag
 }
 
-export const Tag: VFC<TagProps> = ({ tag }) => {
+export const Tag: FC<TagProps> = ({ tag }) => {
   const { label, path } = tag
 
   return (
@@ -30,7 +30,7 @@ interface TagListProps {
   tags: Tag[]
 }
 
-export const TagList: VFC<TagListProps> = ({ tags }) => {
+export const TagList: FC<TagListProps> = ({ tags }) => {
   return (
     <div className="flex flex-wrap gap-4 justify-center">
       {tags.map((tag) => (

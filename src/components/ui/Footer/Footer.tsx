@@ -1,6 +1,6 @@
 import { Anchor } from "@/components/ui/Anchor"
 
-import type { VFC } from "react"
+import type { FC } from "react"
 
 const SERVICES_ITEMS = [
   { label: "運動系のすべてのタグ", href: "/athletic" },
@@ -20,7 +20,7 @@ const LEGAL_ITEMS = [
   { label: "プライバシーポリシー", href: "/privacy-policy" },
 ]
 
-export const Footer: VFC = () => {
+export const Footer: FC = () => {
   return (
     <>
       <footer className="p-10 footer bg-base-200 text-base-content">

@@ -8,14 +8,14 @@ import { TagList } from "@/components/ui/Tag"
 
 import { ATHLETIC_TAG_FOR_CULTURAL, CULTURAL_TAG_ALL } from "@/constant/tag"
 
-import type { VFC } from "react"
+import type { FC } from "react"
 
 interface Props {
   tagName: string
   clubs: Club[]
 }
 
-export const CulturalTagPageView: VFC<Props> = ({ tagName, clubs }) => {
+export const CulturalTagPageView: FC<Props> = ({ tagName, clubs }) => {
   return (
     <main className="flex flex-col items-center p-4 w-full">
       <div className="text-sm breadcrumbs">

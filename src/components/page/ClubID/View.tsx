@@ -25,7 +25,7 @@ import { Anchor } from "@/components/ui/Anchor"
 import { Img } from "@/components/ui/Img"
 import { Spacer } from "@/components/ui/Spacer"
 
-import type { VFC } from "react"
+import type { FC } from "react"
 
 interface BadgeProps {
   isCertificatedByUni: boolean
@@ -35,7 +35,7 @@ interface BadgeProps {
   isCertificatedByLaw: boolean
 }
 
-const Badges: VFC<BadgeProps> = (props) => {
+const Badges: FC<BadgeProps> = (props) => {
   return (
     <div className="flex gap-2 max-w-sm">
       {props.isCertificatedByUni && (
@@ -57,7 +57,7 @@ const Badges: VFC<BadgeProps> = (props) => {
   )
 }
 
-export const ClubIdPageView: VFC<ClubProps> = ({ club }) => {
+export const ClubIdPageView: FC<ClubProps> = ({ club }) => {
   const {
     id,
     name,

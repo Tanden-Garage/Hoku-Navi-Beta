@@ -1,11 +1,11 @@
 import { Anchor } from "@/components/ui/Anchor"
 
-import type { VFC } from "react"
+import type { FC } from "react"
 
 const GOOGLE_POLICY_LINK =
   "https://policies.google.com/technologies/partner-sites?hl=ja"
 
-export const PlivacyPolicyPageView: VFC = () => {
+export const PlivacyPolicyPageView: FC = () => {
   return (
     <main className="flex flex-col items-center p-12 ">
       <div className="prose">

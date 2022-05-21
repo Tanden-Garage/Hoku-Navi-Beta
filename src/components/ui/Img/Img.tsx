@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 import type { ImageProps, ImageLoader } from "next/image"
-import type { VFC } from "react"
+import type { FC } from "react"
 
 const IS_DEV = process.env.NODE_ENV === "development"
 
@@ -23,6 +23,6 @@ interface ImgProps extends ImageProps {
   alt: string
 }
 
-export const Img: VFC<ImgProps> = ({ alt, ...props }) => {
+export const Img: FC<ImgProps> = ({ alt, ...props }) => {
   return <Image {...props} loader={cloudflareLoader} alt={alt} />
 }

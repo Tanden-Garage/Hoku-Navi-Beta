@@ -3,9 +3,9 @@ import type { ClubProps } from "@/types/Club"
 import { Anchor } from "@/components/ui/Anchor"
 import { Img } from "@/components/ui/Img"
 
-import type { VFC } from "react"
+import type { FC } from "react"
 
-export const ClubCard: VFC<ClubProps> = ({ club }) => {
+export const ClubCard: FC<ClubProps> = ({ club }) => {
   const { id, name } = club
   // https://hubcnavi.net/storage/orgs/eb16dc0b783842079f83/large.png
   const imgSrc = `https://hubcnavi.net/storage/orgs/${id}/large.png`
