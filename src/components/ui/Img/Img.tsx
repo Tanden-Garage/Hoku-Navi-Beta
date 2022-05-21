@@ -3,26 +3,14 @@ import Image from "next/image"
 import type { ImageProps, ImageLoader } from "next/image"
 import type { FC } from "react"
 
-const IS_DEV = process.env.NODE_ENV === "development"
-
-const cloudflareLoader: ImageLoader = ({ src, width, quality }) => {
-  if (!quality) {
-    quality = 75
-  }
-
-  const host = IS_DEV
-    ? "http://localhost:3000"
-    : "https://hoku-navi-beta.pages.dev"
-
-  const imgSrc = src.startsWith("/") ? host + src : src
-
-  return `https://image-optimization.vintagenavyblue09143353.workers.dev?width=${width}&quality=${quality}&image=${imgSrc}`
-}
+// 画像はすべてmicroCMSから取得すること
+const microCMSImageLoader: ImageLoader = ({ src, width }) =>
+  `${src}?fm=webp&w=${width}`
 
 interface ImgProps extends ImageProps {
   alt: string
 }
 
-export const Img: FC<ImgProps> = ({ alt, ...props }) => {
-  return <Image {...props} loader={cloudflareLoader} alt={alt} />
+export const Img: VFC<ImgProps> = ({ alt, ...props }) => {
+  return <Image {...props} loader={microCMSImageLoader} alt={alt} />
 }

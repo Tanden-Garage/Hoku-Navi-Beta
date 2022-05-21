@@ -5,18 +5,17 @@ import { Img } from "@/components/ui/Img"
 
 import type { FC } from "react"
 
-export const ClubCard: FC<ClubProps> = ({ club }) => {
-  const { id, name } = club
-  // https://hubcnavi.net/storage/orgs/eb16dc0b783842079f83/large.png
-  const imgSrc = `https://hubcnavi.net/storage/orgs/${id}/large.png`
+const DUMMY_IMAGE = `https://images.microcms-assets.io/assets/ce14ee4b88d6401ab537598beb8ff6a8/50fff40d44c14ae3a8578c6ccaa8a35a/medSoccer.webp`
+export const ClubCard: VFC<ClubProps> = ({ club }) => {
+  const { path, name } = club
 
   return (
-    <Anchor className="no-underline" href={`/${id}`}>
+    <Anchor className="no-underline" href={`/${path}`}>
       <div className="w-80 border-2 shadow-xl card bg-base-100">
         <figure className="m-0 rounded-t-xl">
           <Img
             className="p-0 m-0 rounded-t-xl"
-            src={imgSrc}
+            src={DUMMY_IMAGE}
             width={400}
             height={300}
             alt={name}
