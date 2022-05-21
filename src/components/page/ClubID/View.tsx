@@ -87,7 +87,7 @@ export const ClubIdPageView: FC<ClubProps> = ({ club }) => {
   const hasFacebook = Boolean(facebook)
   const hasInstagram = Boolean(instagram)
 
-  const imgSrc = `https://hubcnavi.net/storage/orgs/${id}/large.png`
+  const DUMMY_IMAGE = `https://images.microcms-assets.io/assets/ce14ee4b88d6401ab537598beb8ff6a8/50fff40d44c14ae3a8578c6ccaa8a35a/medSoccer.webp`
 
   const updateDay = dateFormatter(lastUpdateAt)
 
@@ -101,7 +101,7 @@ export const ClubIdPageView: FC<ClubProps> = ({ club }) => {
         width={1000}
         height={500}
         objectFit="cover"
-        src={imgSrc}
+        src={DUMMY_IMAGE}
         alt={name}
         className="rounded-none md:rounded-lg"
       />
