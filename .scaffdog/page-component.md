@@ -4,6 +4,7 @@ root: "."
 output: "**/*"
 ignore: []
 questions:
+  path: "What's path? (Don't attach / to start or end)"
   name: "Please enter component name"
 ---
 
@@ -57,11 +58,11 @@ export const {{ inputs.name | pascal }}PageView: FC = () => {
 # `src/components/page/{{ inputs.name | pascal }}/{{ inputs.name | pascal }}.stories.tsx`
 
 ```tsx
-import type { ComponentStory, ComponentMeta } from "@storybook/react"
-
 import { Layout } from "@/components/layout"
 
 import { {{ inputs.name | pascal }}PageView } from "./View"
+
+import type { ComponentStory, ComponentMeta } from "@storybook/react"
 
 export default {
   title: "Page/{{ inputs.name | pascal }}",
@@ -76,4 +77,16 @@ const Template: ComponentStory<typeof {{ inputs.name | pascal }}PageView> = (arg
 
 export const Default = Template.bind({})
 Default.args = {}
+```
+
+# `src/pages/{{ inputs.path }}/index.tsx`
+
+```tsx
+import {{ inputs.name | pascal }}Page from "@/components/page/{{ inputs.name | pascal }}/"
+
+import { Layout } from "@/components/layout"
+
+{{ inputs.name | pascal }}Page.getLayout = (page) => <Layout>{page}</Layout>
+
+export default {{ inputs.name | pascal }}Page
 ```
