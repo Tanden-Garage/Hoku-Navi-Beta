@@ -1,4 +1,4 @@
-import type { VFC, ComponentProps } from "react"
+import type { FC, ComponentProps } from "react"
 
 type Size = typeof TAILWIND_SIZES_MAP[number]["n"]
 type Axis = "vertical" | "horizontal"
@@ -8,7 +8,7 @@ interface SpacerProps extends ComponentProps<"span"> {
   axis?: Axis
 }
 
-export const Spacer: VFC<SpacerProps> = ({
+export const Spacer: FC<SpacerProps> = ({
   size,
   axis,
   className,

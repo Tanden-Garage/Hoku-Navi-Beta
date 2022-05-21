@@ -17,11 +17,11 @@ export { {{ inputs.component | pascal }} } from "./{{ inputs.component | pascal 
 # `src/components/model/{{ inputs.model | pascal }}/{{ inputs.component | pascal }}/{{ inputs.component | pascal }}.tsx`
 
 ```tsx
-import type { VFC } from "react"
+import type { FC } from "react"
 
 import { {{ inputs.model | pascal }}ListProps } from "@/types/{{ inputs.model | pascal }}"
 
-export const {{ inputs.component | pascal }}: VFC<{{ inputs.model | pascal }}ListProps> = ({ {{ inputs.model | camel }}s }) => {
+export const {{ inputs.component | pascal }}: FC<{{ inputs.model | pascal }}ListProps> = ({ {{ inputs.model | camel }}s }) => {
   return <></>
 }
 ```

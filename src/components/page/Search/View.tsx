@@ -1,6 +1,6 @@
 import clsx from "clsx"
 import { useRouter } from "next/router"
-import { useEffect, useRef, VFC } from "react"
+import { useEffect, useRef, FC } from "react"
 
 import type { Club } from "@/types/Club"
 
@@ -17,7 +17,7 @@ interface SearchPageProps {
   clubs: Club[]
 }
 
-export const SearchPageView: VFC<SearchPageProps> = ({
+export const SearchPageView: FC<SearchPageProps> = ({
   currentPage,
   hasNext,
   searchText,
@@ -112,7 +112,7 @@ export const SearchPageView: VFC<SearchPageProps> = ({
   )
 }
 
-const NoResultScreen: VFC = () => (
+const NoResultScreen: FC = () => (
   <div className="text-center">
     <h1>Sorry!</h1>
     <p>お探しの団体は見つかりませんでした😭</p>

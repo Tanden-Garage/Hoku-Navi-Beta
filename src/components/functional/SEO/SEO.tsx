@@ -1,6 +1,6 @@
 import NextHeadSeo from "next-head-seo"
 
-import type { VFC } from "react"
+import type { FC } from "react"
 
 interface SEOProps {
   path: string
@@ -19,7 +19,7 @@ const DEFAULT_DESCRIPTION =
   "北海道大学の学生を中心とした部活やサークル、学生団体の情報を分かりやすくお伝えするサイトです。多種多様な団体を掲載しています。"
 const DEFAULT_OG_IMG = "/og.png"
 
-export const MySEO: VFC<SEOProps> = ({
+export const MySEO: FC<SEOProps> = ({
   path,
   title = DEFAULT_TITLE,
   description = DEFAULT_DESCRIPTION,

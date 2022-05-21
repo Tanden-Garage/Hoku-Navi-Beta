@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import { useCallback, useState, VFC } from "react"
+import { useCallback, useState, FC } from "react"
 
 import { Hero } from "@/components/ui/Hero"
 import { Spacer } from "@/components/ui/Spacer"
@@ -9,7 +9,7 @@ import { ATHLETIC_TAG_POPULAR, CULTURAL_TAG_POPULAR } from "@/constant/tag"
 
 import type { CategoryType } from "@/constant/category"
 
-export const TopPageView: VFC = () => {
+export const TopPageView: FC = () => {
   const [tab, setTab] = useState<CategoryType>("athletic")
   const isAthletic = tab === "athletic"
   const tabItemProps = ["w-1/2", "tab", "tab-lifted"]
@@ -50,7 +50,7 @@ export const TopPageView: VFC = () => {
   )
 }
 
-const AthView: VFC = () => {
+const AthView: FC = () => {
   return (
     <div>
       <h2>人気の運動系タグ</h2>
@@ -62,7 +62,7 @@ const AthView: VFC = () => {
   )
 }
 
-const CulView: VFC = () => {
+const CulView: FC = () => {
   return (
     <div>
       <h2>人気の文化系タグ</h2>

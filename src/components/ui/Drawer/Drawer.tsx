@@ -2,7 +2,7 @@ import { Anchor } from "@/components/ui/Anchor"
 import { SearchBar } from "@/components/ui/SearchBar"
 import { Spacer } from "@/components/ui/Spacer"
 
-import type { VFC } from "react"
+import type { FC } from "react"
 
 const SIDEBAR_ITEMS_UPPER = [
   { label: "運動系のすべてのタグ", href: "/athletic" },
@@ -17,7 +17,7 @@ const SIDEBAR_ITEMS_LOWER = [
   { label: "お問い合わせ", href: "/contact" },
 ]
 
-export const Drawer: VFC = () => {
+export const Drawer: FC = () => {
   return (
     <div className="drawer-side">
       <label htmlFor="my-drawer" className="drawer-overlay" />

@@ -1,6 +1,6 @@
 import { ErrorMessage } from "@hookform/error-message"
 import clsx from "clsx"
-import { useState, VFC } from "react"
+import { useState, FC } from "react"
 import { useForm } from "react-hook-form"
 
 import { Anchor } from "@/components/ui/Anchor"
@@ -13,7 +13,7 @@ import {
   FORM_PROPS,
 } from "./data"
 
-export const ContactPageView: VFC = () => {
+export const ContactPageView: FC = () => {
   const [isModalOn, setIsModalOn] = useState(false)
 
   const {
@@ -29,7 +29,7 @@ export const ContactPageView: VFC = () => {
     setIsModalOn(false)
   }
 
-  const Label: VFC<{ labelText: string; name: string; required?: boolean }> = ({
+  const Label: FC<{ labelText: string; name: string; required?: boolean }> = ({
     labelText,
     name,
     required = true,

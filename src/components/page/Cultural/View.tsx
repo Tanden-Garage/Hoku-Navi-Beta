@@ -4,9 +4,9 @@ import { TagList } from "@/components/ui/Tag"
 
 import { CULTURAL_TAG_ALL } from "@/constant/tag"
 
-import type { VFC } from "react"
+import type { FC } from "react"
 
-export const CulturalPageView: VFC = () => {
+export const CulturalPageView: FC = () => {
   return (
     <main className="flex flex-col justify-center items-center  p-8 ">
       <h1>文化系のすべてのタグ一覧</h1>

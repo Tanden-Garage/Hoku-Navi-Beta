@@ -1,6 +1,6 @@
-import type { VFC } from "react"
+import type { FC } from "react"
 
-export const Hero: VFC = () => {
+export const Hero: FC = () => {
   return (
     <div
       className="h-60 hero"

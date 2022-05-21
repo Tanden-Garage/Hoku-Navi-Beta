@@ -1,4 +1,4 @@
-import { ReactChild, useEffect, useState, VFC } from "react"
+import { ReactChild, useEffect, useState, FC } from "react"
 
 import type { Article } from "@/types/Article"
 
@@ -46,7 +46,7 @@ interface LoadingContainerProps {
   children: ReactChild
 }
 
-export const LoadingContainer: VFC<LoadingContainerProps> = ({
+export const LoadingContainer: FC<LoadingContainerProps> = ({
   isLoading,
   children,
 }) => {

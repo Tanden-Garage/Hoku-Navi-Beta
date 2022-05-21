@@ -1,10 +1,10 @@
-import type { VFC } from "react"
+import type { FC } from "react"
 
 interface SearchBarProps {
   placeholder?: string
 }
 
-export const SearchBar: VFC<SearchBarProps> = ({
+export const SearchBar: FC<SearchBarProps> = ({
   placeholder = "キーワード検索",
 }) => {
   return (

@@ -1,8 +1,8 @@
 import { Anchor } from "@/components/ui/Anchor"
 
-import type { VFC } from "react"
+import type { FC } from "react"
 
-export const Header: VFC = () => {
+export const Header: FC = () => {
   return (
     <div className="rounded-md shadow navbar bg-base-100">
       <div className="flex-1">

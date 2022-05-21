@@ -1,8 +1,8 @@
 import type { UserProps, UserListProps } from "@/types/User"
 
-import type { VFC } from "react"
+import type { FC } from "react"
 
-const UserTableItem: VFC<UserProps> = ({ user }) => {
+const UserTableItem: FC<UserProps> = ({ user }) => {
   const { id, name, gitHubUserName } = user
   const gitHubUserPage = `https://github.com/${gitHubUserName}`
 
@@ -28,7 +28,7 @@ const UserTableItem: VFC<UserProps> = ({ user }) => {
   )
 }
 
-export const UserTable: VFC<UserListProps> = ({ users }) => {
+export const UserTable: FC<UserListProps> = ({ users }) => {
   return (
     <table className="table shadow">
       <thead>

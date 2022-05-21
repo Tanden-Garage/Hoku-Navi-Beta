@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import { Dispatch, SetStateAction, useState, VFC } from "react"
+import { Dispatch, SetStateAction, useState, FC } from "react"
 
 import type { Sakuin } from "@/utils/sakuin"
 
@@ -12,7 +12,7 @@ interface SakuinPageViewProps {
   items: Sakuin
 }
 
-export const SakuinPageView: VFC<SakuinPageViewProps> = ({ items }) => {
+export const SakuinPageView: FC<SakuinPageViewProps> = ({ items }) => {
   const [currentKey, setCurrentKey] = useState<Key>("あ行")
 
   const currentList = items[currentKey]
@@ -58,7 +58,7 @@ interface SwitcherProps {
   setCurrentKey: Dispatch<SetStateAction<Key>>
 }
 
-const Switcher: VFC<SwitcherProps> = ({ keys, currentKey, setCurrentKey }) => {
+const Switcher: FC<SwitcherProps> = ({ keys, currentKey, setCurrentKey }) => {
   return (
     <div className="flex flex-wrap gap-4 justify-center mt-0.5 w-full lg:mt-0">
       {keys.map((key) => {

@@ -3,7 +3,7 @@ import type { ClubProps } from "@/types/Club"
 import { Anchor } from "@/components/ui/Anchor"
 import { Img } from "@/components/ui/Img"
 
-import type { VFC } from "react"
+import type { FC } from "react"
 
 const DUMMY_IMAGE = `https://images.microcms-assets.io/assets/ce14ee4b88d6401ab537598beb8ff6a8/50fff40d44c14ae3a8578c6ccaa8a35a/medSoccer.webp`
 export const ClubCard: VFC<ClubProps> = ({ club }) => {

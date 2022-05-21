@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 import type { ImageProps, ImageLoader } from "next/image"
-import type { VFC } from "react"
+import type { FC } from "react"
 
 // 画像はすべてmicroCMSから取得すること
 const microCMSImageLoader: ImageLoader = ({ src, width }) =>
@@ -13,4 +13,5 @@ interface ImgProps extends ImageProps {
 
 export const Img: VFC<ImgProps> = ({ alt, ...props }) => {
   return <Image {...props} loader={microCMSImageLoader} alt={alt} />
+
 }
