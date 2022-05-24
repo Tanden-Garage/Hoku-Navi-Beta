@@ -21,7 +21,7 @@
     "next-themes": "^0.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-hook-form": "^7.29.0",
+    "react-hook-form": "^7.31.2",
     "react-icons": "^4.3.1",
     "react-share": "^4.4.0"
   },
@@ -31,7 +31,7 @@
     "@commitlint/config-conventional": "^17.0.0",
     "@storybook/addon-actions": "^6.4.20",
     "@storybook/addon-console": "^1.2.3",
-    "@storybook/addon-essentials": "^6.4.22",
+    "@storybook/addon-essentials": "^6.5.4",
     "@storybook/addon-links": "^6.5.3",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/builder-webpack5": "^6.4.22",
@@ -42,9 +42,10 @@
     "@types/jest": "^27.4.1",
     "@types/node": "17.0.35",
     "@types/react": "18.0.9",
-    "@typescript-eslint/eslint-plugin": "^5.25.0",
-    "@typescript-eslint/parser": "^5.25.0",
+    "@typescript-eslint/eslint-plugin": "^5.26.0",
+    "@typescript-eslint/parser": "^5.26.0",
     "autoprefixer": "^10.4.5",
+    "@typescript-eslint/parser": "^5.25.0",
     "babel-loader": "^8.2.4",
     "clsx": "^1.1.1",
     "eslint": "8.13.0",
@@ -60,7 +61,7 @@
     "prettier": "^2.6.2",
     "scaffdog": "^1.2.0",
     "tailwindcss": "^3.0.17",
-    "typescript": "4.6.3"
+    "typescript": "4.6.4"
   },
   "husky": {
     "pre-commit": {}
