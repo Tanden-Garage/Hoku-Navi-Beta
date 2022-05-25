@@ -29,7 +29,7 @@
     "@babel/core": "^7.18.0",
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.0.0",
-    "@storybook/addon-actions": "^6.4.20",
+    "@storybook/addon-actions": "^6.5.5",
     "@storybook/addon-console": "^1.2.3",
     "@storybook/addon-essentials": "^6.5.4",
     "@storybook/addon-links": "^6.5.5",
